@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #16805c;
+    --purple: #7654c8;
+    --dark: #17201c;
+    --gray: #68736e;
+    --light: #f5f8f6;
+    --white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    line-height: 1.7;
+}
+
+/* HEADER */
+
+header {
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-bottom: 1px solid #edf0ee;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: none;
+    font-size: 28px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 75vh;
+    padding: 90px 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(118,84,200,.12), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(22,128,92,.14), transparent 30%);
+}
+
+.eyebrow {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    max-width: 850px;
+    font-size: clamp(38px, 7vw, 68px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.intro {
+    max-width: 650px;
+    color: var(--gray);
+    font-size: 17px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-primary {
+    color: white;
+    background: var(--green);
+}
+
+.btn-secondary {
+    color: var(--purple);
+    border: 1px solid #ddd6f4;
+}
+
+/* SECTIONS */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 90px 7%;
+}
+
+.section h2 {
+    font-size: 40px;
+    margin-bottom: 18px;
+}
+
+.section-intro {
+    max-width: 680px;
+    color: var(--gray);
+    margin-bottom: 40px;
+}
+
+/* WORK */
+
+.work-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.work-placeholder {
+    height: 280px;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #f1f6f3, #f8f5ff);
+    border: 1px solid #e8ecea;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--green);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* SERVICES */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.card {
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid #e8ecea;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--gray);
+}
+
+/* CTA */
+
+.cta {
+    text-align: center;
+    max-width: 1000px;
+    background: var(--light);
+    border-radius: 35px;
+    margin-bottom: 80px;
+}
+
+.cta p {
+    color: var(--gray);
+    margin: 15px 0 25px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 7%;
+    border-top: 1px solid #edf0ee;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: var(--gray);
+    font-size: 13px;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 15px 5%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        left: 5%;
+        padding: 20px;
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 18px;
+    }
+
+    .hero {
+        min-height: 70vh;
+        padding: 70px 6%;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section {
+        padding: 65px 6%;
+    }
+
+    .section h2 {
+        font-size: 32px;
+    }
+
+    .work-preview {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+               }
