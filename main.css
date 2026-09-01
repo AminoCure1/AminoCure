@@ -504,3 +504,12 @@ footer {
 .featured-work {
     padding-top: 15px;
 }
+/* CERTIFICATES */
+.certificates {
+    text-align: center;
+}
+
+.certificates .section-intro {
+    margin-left: auto;
+    margin-right: auto;
+}
