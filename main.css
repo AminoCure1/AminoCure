@@ -495,3 +495,8 @@ footer {
     color: var(--white);
     border-color: var(--purple);
 }
+.certificates .btn-secondary {
+    background-color: var(--purple);
+    color: var(--white);
+    border-color: var(--purple);
+}
