@@ -295,7 +295,7 @@ footer {
 
 .work-item {
     width: 100%;
-    min-height: 360px;
+    min-height: 300px;
     overflow: hidden;
     border-radius: 24px;
     background: #f5f8f6;
