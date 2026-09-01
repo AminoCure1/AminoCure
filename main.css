@@ -432,3 +432,7 @@ footer {
     letter-spacing: 2px;
     font-weight: 700;
 }
+/* Home About spacing */
+.home-about {
+    padding-bottom: 40px;
+}
