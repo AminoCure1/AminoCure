@@ -478,3 +478,8 @@ footer {
     display: block;
     margin: 0 auto 20px;
 }
+.home-hero .btn-secondary {
+    background-color: var(--purple);
+    color: var(--white);
+    border-color: var(--purple);
+}
