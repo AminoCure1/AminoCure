@@ -466,3 +466,7 @@ footer {
     width: 30px;
     height: 30px;
 }
+/* Home Hero spacing */
+.home-hero {
+    padding-bottom: 40px;
+}
