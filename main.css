@@ -483,3 +483,15 @@ footer {
     color: var(--white);
     border-color: var(--purple);
 }
+/* WORK BUTTON */
+
+.featured-work {
+    text-align: center;
+}
+
+.featured-work .btn-secondary {
+    display: inline-block;
+    background-color: var(--purple);
+    color: var(--white);
+    border-color: var(--purple);
+}
