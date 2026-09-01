@@ -440,3 +440,11 @@ footer {
 .home-about + .section {
     padding-top: 10px;
 }
+/* Home Featured Work spacing */
+.featured-work {
+    padding-bottom: 10px;
+}
+
+.featured-work + .section {
+    padding-top: 10px;
+}
