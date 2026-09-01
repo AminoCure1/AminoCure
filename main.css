@@ -448,3 +448,21 @@ footer {
 .featured-work + .section {
     padding-top: 9px;
 }
+.service-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    background: #f3f0fc;
+    color: var(--purple);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+.service-icon svg {
+    width: 30px;
+    height: 30px;
+}
