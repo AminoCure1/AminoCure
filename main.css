@@ -232,17 +232,32 @@ footer {
     }
 
     nav.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 5%;
-        left: 5%;
-        padding: 20px;
-        background: white;
-        border: 1px solid #eee;
-        border-radius: 18px;
-    }
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    left: 5%;
+    padding: 20px;
+    background: white;
+    border: 1px solid #e8e4f5;
+    border-radius: 22px;
+    box-shadow: 0 12px 35px rgba(118, 84, 200, 0.15);
+}
+
+.menu-close {
+    display: block;
+    align-self: flex-start;
+    border: 0;
+    background: #f3f0fc;
+    color: var(--purple);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
 
     .hero {
         min-height: 70vh;
