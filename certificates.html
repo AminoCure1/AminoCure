@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>الشهادات والدورات | Amino Cure</title>
+
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+
+        /* CERTIFICATES PAGE */
+
+        .certificates-hero {
+            text-align: center;
+            padding: 80px 20px 50px;
+        }
+
+        .certificates-hero h1 {
+            margin: 10px 0 15px;
+            font-size: 42px;
+        }
+
+        .certificates-hero p {
+            color: var(--gray);
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .certificates-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 7% 80px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .certificate-card {
+            background: #ffffff;
+            border: 1px solid #e8ecea;
+            border-radius: 24px;
+            overflow: hidden;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.05);
+
+            display: flex;
+            flex-direction: column;
+
+            transition: .25s;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(118,84,200,.12);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 230px;
+            object-fit: contain;
+            background: #f7f9f8;
+            padding: 12px;
+        }
+
+        .certificate-content {
+            padding: 22px;
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .certificate-content h3 {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .certificate-button {
+            margin-top: auto;
+
+            display: inline-block;
+
+            padding: 11px 20px;
+            border-radius: 50px;
+
+            background: var(--purple);
+            color: white;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: .2s;
+        }
+
+        .certificate-button:hover {
+            opacity: .9;
+        }
+
+        .certificate-no-link {
+            margin-top: auto;
+
+            padding: 11px 20px;
+            border-radius: 50px;
+
+            background: #f1f3f2;
+            color: var(--gray);
+
+            font-size: 14px;
+        }
+
+        .back-home {
+            text-align: center;
+            padding-bottom: 80px;
+        }
+
+        @media (max-width: 900px) {
+
+            .certificates-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .certificates-hero {
+                padding: 60px 20px 35px;
+            }
+
+            .certificates-hero h1 {
+                font-size: 32px;
+            }
+
+            .certificates-grid {
+                grid-template-columns: 1fr;
+                padding: 15px 5% 60px;
+            }
+
+            .certificate-image {
+                height: 250px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- Header -->
+
+<header>
+
+    <a href="index.html" class="logo">
+
+        <img src="logo.png"
+             alt="Amino Cure">
+
+    </a>
+
+
+    <button class="menu-toggle"
+            aria-label="فتح القائمة">
+
+        ☰
+
+    </button>
+
+
+    <nav>
+
+        <button class="menu-close"
+                aria-label="إغلاق القائمة">
+
+            ×
+
+        </button>
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="about.html">
+            نبذة عني
+        </a>
+
+        <a href="work.html">
+            أعمالي
+        </a>
+
+        <a href="certificates.html">
+            الشهادات والدورات
+        </a>
+
+        <a href="contact.html">
+            تواصل معي
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- Certificates Hero -->
+
+<main>
+
+    <section class="certificates-hero">
+
+        <p class="eyebrow">
+            CERTIFICATES & COURSES
+        </p>
+
+        <h1>
+            الشهادات والدورات
+        </h1>
+
+        <p>
+            مجموعة من الشهادات والدورات التي ساهمت
+            في تطوير معرفتي ومهاراتي في الصيدلة
+            والمجالات المرتبطة بها.
+        </p>
+
+    </section>
+
+
+    <!-- Certificates -->
+
+    <section class="certificates-grid">
+
+
+        <!-- 1 -->
+
+        <div class="certificate-card">
+
+            <img src="certificate1.png"
+                 alt="The Art of Storytelling"
+                 class="certificate-image">
+
+            <div class="certificate-content">
+
+                <h3>
+                    The Art of Storytelling
+                </h3>
+
+                <a href="https://www.coursera.org/account/accomplishments/verify/8GR9Y2GQV0C6"
+                   target="_blank"
+                   rel="noopener"
+                   class="certificate-button">
+
+                    🔗 التحقق من الشهادة
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="certificate-card">
+
+            <img src="certificate2.png"
+                 alt="Word Forms and Simple Present Tense"
+                 class="certificate-image">
