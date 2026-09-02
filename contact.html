@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>تواصل معي | Amino Cure</title>
+
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+
+        /* CONTACT PAGE */
+
+        .contact-hero {
+            text-align: center;
+            padding: 80px 20px 45px;
+        }
+
+        .contact-hero h1 {
+            margin: 10px 0 15px;
+            font-size: 42px;
+        }
+
+        .contact-hero p {
+            color: var(--gray);
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .contact-grid {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px 7% 80px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border: 1px solid #e8ecea;
+            border-radius: 24px;
+            padding: 28px 22px;
+
+            text-align: center;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.05);
+
+            transition: .25s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(118,84,200,.12);
+        }
+
+        .contact-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card h3 {
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 18px;
+            direction: ltr;
+            word-break: break-word;
+        }
+
+        .contact-button {
+            display: inline-block;
+
+            padding: 10px 22px;
+            border-radius: 50px;
+
+            background: var(--purple);
+            color: white;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: .2s;
+        }
+
+        .contact-button:hover {
+            opacity: .9;
+        }
+
+        .contact-note {
+            text-align: center;
+            color: var(--gray);
+            font-size: 14px;
+            margin-top: -45px;
+            padding: 0 20px 60px;
+        }
+
+        .back-home {
+            text-align: center;
+            padding-bottom: 80px;
+        }
+
+        @media (max-width: 600px) {
+
+            .contact-hero {
+                padding: 60px 20px 35px;
+            }
+
+            .contact-hero h1 {
+                font-size: 32px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                padding: 15px 5% 60px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- Header -->
+
+<header>
+
+    <a href="index.html" class="logo">
+
+        <img src="logo.png"
+             alt="Amino Cure">
+
+    </a>
+
+
+    <button class="menu-toggle"
+            aria-label="فتح القائمة">
+
+        ☰
+
+    </button>
+
+
+    <nav>
+
+        <button class="menu-close"
+                aria-label="إغلاق القائمة">
+
+            ×
+
+        </button>
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="about.html">
+            نبذة عني
+        </a>
+
+        <a href="work.html">
+            أعمالي
+        </a>
+
+        <a href="certificates.html">
+            الشهادات والدورات
+        </a>
+
+        <a href="contact.html">
+            تواصل معي
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- Contact -->
+
+<main>
+
+    <section class="contact-hero">
+
+        <p class="eyebrow">
+            GET IN TOUCH
+        </p>
+
+        <h1>
+            تواصل معي
+        </h1>
+
+        <p>
+            يسعدني التواصل معك والتعرف على أفكارك
+            ومشاريعك وفرص التعاون.
+        </p>
+
+    </section>
+
+
+    <section class="contact-grid">
+
+
+        <!-- Facebook -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                📘
+            </div>
+
+            <h3>
+                Facebook
+            </h3>
+
+            <p>
+                Amino Cure
+            </p>
+
+            <a href="https://www.facebook.com/profile.php?id=61567925348751"
+               target="_blank"
+               rel="noopener"
+               class="contact-button">
+
+                زيارة الحساب
+
+            </a>
+
+        </div>
+
+
+        <!-- Instagram -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                📸
+            </div>
+
+            <h3>
+                Instagram
+            </h3>
+
+            <p>
+                @amin.8os
+            </p>
+
+            <a href="https://www.instagram.com/amin.8os?igsi=c2JuZXp1NDNrZmI2"
+               target="_blank"
+               rel="noopener"
+               class="contact-button">
+
+                زيارة الحساب
+
+            </a>
+
+        </div>
+
+
+        <!-- LinkedIn -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                💼
+            </div>
+
+            <h3>
+                LinkedIn
+            </h3>
+
+            <p>
+                Ameen Tageldin
+            </p>
+
+            <a href="https://www.linkedin.com/in/ameentageldin?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+               target="_blank"
+               rel="noopener"
+               class="contact-button">
+
+                زيارة الملف
+
+            </a>
+
+        </div>
+
+
+        <!-- Email -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                ✉️
+            </div>
+
+            <h3>
+                البريد الإلكتروني
+            </h3>
+
+            <p>
+                ameentageldin56@gmail.com
+            </p>
+
+            <a href="mailto:ameentageldin56@gmail.com"
+               class="contact-button">
+
+                إرسال بريد
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+    <p class="contact-note">
+        سيتم إضافة وسيلة تواصل عبر واتساب قريبًا.
+    </p>
+
+
+    <!-- Back Home -->
+
+    <section class="back-home">
+
+        <a href="index.html"
+           class="btn btn-secondary">
+
+            ← العودة للرئيسية
+
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- Menu Script -->
+
+<script>
+
+    const menuToggle =
+        document.querySelector('.menu-toggle');
+
+    const menuClose =
+        document.querySelector('.menu-close');
+
+    const nav =
+        document.querySelector('nav');
+
+
+    menuToggle.addEventListener('click', () => {
+
+        nav.classList.add('active');
+
+    });
+
+
+    menuClose.addEventListener('click', () => {
+
+        nav.classList.remove('active');
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
