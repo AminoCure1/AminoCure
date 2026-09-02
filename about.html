@@ -1,29 +1,78 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head>
-    <meta charset="UTF-8"><meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-<title>نبذة عني | Amino Cure</title>
+<head>
 
-<link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
 
-</head><body><!-- Header -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>نبذة عني | Amino Cure</title>
+
+    <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+
+
+<!-- Header -->
+
 <header>
 
     <a href="index.html" class="logo">
-        <img src="logo.png" alt="Amino Cure">
+
+        <img src="logo.png"
+             alt="Amino Cure">
+
     </a>
 
+
+    <button class="menu-toggle"
+            aria-label="فتح القائمة">
+
+        ☰
+
+    </button>
+
+
     <nav>
-        <a href="index.html">الرئيسية</a>
-        <a href="about.html" class="active">نبذة عني</a>
-        <a href="index.html#works">أعمالي</a>
-        <a href="contact.html">تواصل معي</a>
+
+        <button class="menu-close"
+                aria-label="إغلاق القائمة">
+
+            ×
+
+        </button>
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="about.html">
+            نبذة عني
+        </a>
+
+        <a href="work.html">
+            أعمالي
+        </a>
+
+        <a href="certificates.html">
+            الشهادات والدورات
+        </a>
+
+        <a href="contact.html">
+            تواصل معي
+        </a>
+
     </nav>
 
 </header>
 
 
 <!-- About Hero -->
+
 <main>
 
     <section class="about-hero">
@@ -54,6 +103,7 @@
 
 
     <!-- Amino Cure -->
+
     <section class="about-section">
 
         <p class="eyebrow">
@@ -79,6 +129,7 @@
 
 
     <!-- Vision -->
+
     <section class="about-section about-vision">
 
         <p class="eyebrow">
@@ -112,6 +163,7 @@
 
 
     <!-- Back -->
+
     <section class="about-action">
 
         <a href="index.html" class="btn btn-primary">
@@ -124,6 +176,7 @@
 
 
 <!-- Footer -->
+
 <footer>
 
     <strong>
@@ -136,4 +189,37 @@
 
 </footer>
 
-</body></html>
+
+<!-- Menu Script -->
+
+<script>
+
+    const menuToggle =
+        document.querySelector('.menu-toggle');
+
+    const menuClose =
+        document.querySelector('.menu-close');
+
+    const nav =
+        document.querySelector('nav');
+
+
+    menuToggle.addEventListener('click', () => {
+
+        nav.classList.add('active');
+
+    });
+
+
+    menuClose.addEventListener('click', () => {
+
+        nav.classList.remove('active');
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
