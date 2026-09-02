@@ -60,9 +60,7 @@ nav a:hover {
     background: #f3f0fc;
 }
 
-nav a:hover {
-    color: var(--green);
-}
+
 
 .menu-toggle {
     display: none;
