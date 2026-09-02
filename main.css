@@ -352,6 +352,7 @@ footer {
     max-width: 900px;
     margin: 0 auto;
     padding: 35px 25px;
+    text-align: center;
 }
 
 .about-section > h2 {
