@@ -21,6 +21,9 @@
   <meta property="og:url" content="https://aminocure1.github.io/AminoCure/">
   <meta property="og:image" content="https://aminocure1.github.io/AminoCure/logo.png">
 
+  <!-- تحميل مسبق لصورة البروفايل حتى تظهر مباشرة -->
+  <link rel="preload" as="image" href="profile.webp" type="image/webp" fetchpriority="high">
+
   <link rel="stylesheet" href="style.css">
 
   <!-- Font Awesome -->
@@ -75,7 +78,10 @@
   <header class="header" id="top">
 
     <a href="#home" class="logo">
-      <img src="logo.png" alt="Amino Cure" class="logo-image">
+      <picture>
+        <source srcset="logo.webp" type="image/webp">
+        <img src="logo.png" alt="Amino Cure" class="logo-image" width="76" height="76" decoding="async">
+      </picture>
       <span>Amino <b>Cure</b></span>
     </a>
 
@@ -161,10 +167,18 @@
       <!-- الصورة والعناصر البصرية -->
       <div class="hero-visual">
 
-        <img
-          src="profile.png"
-          alt="صورة صاحب Amino Cure"
-          class="profile-image">
+        <picture>
+          <source srcset="profile.webp" type="image/webp">
+          <img
+            src="profile.png"
+            alt="صورة صاحب Amino Cure"
+            class="profile-image"
+            width="640"
+            height="640"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async">
+        </picture>
 
         <div class="visual-orbit orbit-one"></div>
         <div class="visual-orbit orbit-two"></div>
@@ -331,11 +345,17 @@
               target="_blank"
               rel="noopener noreferrer"
               aria-label="عرض شهادة Data Sciences in Pharma">
-              <img
-                src="certificate12.png"
-                alt="Data Sciences in Pharma - Patient Centered Outcomes Research"
-                class="certificate-image"
-                loading="lazy">
+              <picture>
+                <source srcset="certificate12.webp" type="image/webp">
+                <img
+                  src="certificate12.png"
+                  alt="Data Sciences in Pharma - Patient Centered Outcomes Research"
+                  class="certificate-image"
+                  width="900"
+                  height="685"
+                  loading="eager"
+                  decoding="async">
+              </picture>
             </a>
 
             <div class="certificate-content">
@@ -553,7 +573,10 @@
   <footer class="footer">
 
     <a href="#top" class="logo">
-      <img src="logo.png" alt="Amino Cure" class="logo-image">
+      <picture>
+        <source srcset="logo.webp" type="image/webp">
+        <img src="logo.png" alt="Amino Cure" class="logo-image" width="76" height="76" decoding="async">
+      </picture>
       <span>Amino <b>Cure</b></span>
     </a>
 
@@ -600,4 +623,4 @@
   </style>
 
 </body>
-</html>
+  </html>
