@@ -607,4 +607,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // تطبيق اللغة المحفوظة عند فتح الموقع
   applyLanguage(currentLanguage);
+
+  // ========================================
+  // 9. تحميل صور صفحة الشهادات مسبقًا
+  // ========================================
+  // بعد اكتمال تحميل الصفحة الرئيسية، يحمّل المتصفح صور الشهادات
+  // في الخلفية، فتظهر فورًا عند فتح صفحة "عرض جميع الشهادات".
+
+  if (!/certificates\.html/i.test(window.location.pathname)) {
+    const certificateImages = [13, 15, 17, 18, 16, 14, 1, 7, 5, 8, 4, 10, 9, 6, 11, 3, 2, 19, 20, 21];
+
+    const preloadCertificates = function () {
+      certificateImages.forEach(function (number) {
+        const image = new Image();
+        image.decoding = "async";
+        image.src = "certificate" + number + ".webp";
+      });
+    };
+
+    window.addEventListener("load", function () {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(preloadCertificates, { timeout: 3000 });
+      } else {
+        window.setTimeout(preloadCertificates, 1500);
+      }
+    });
+  }
 });
+
