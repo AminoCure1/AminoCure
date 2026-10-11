@@ -1,312 +1,587 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Amino Cure | أمين تاج الدين عثمان </title>
+  <meta name="theme-color" content="#7654c8">
+  <meta name="description" content="Amino Cure | أمين تاج الدين عثمان. محتوى صيدلاني وتثقيف صحي مبسط، ومعلومات دوائية وتصميم محتوى طبي.">
 
-    <meta name="description"
-        content="Amino Cure — محتوى صيدلاني وتثقيف صحي مبسط، وأعمال في تصميم المحتوى الطبي والسوشيال ميديا.">
+  <title>Amino Cure | أمين تاج الدين عثمان</title>
 
-    <link rel="stylesheet" href="main.css">
+  <link rel="canonical" href="https://aminocure1.github.io/AminoCure/">
+  <link rel="icon" type="image/png" href="favicon1.png">
+<link rel="apple-touch-icon" href="favicon1.png">
+  <!-- Open Graph: مشاركة الموقع -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Amino Cure">
+  <meta property="og:title" content="Amino Cure | أمين تاج الدين عثمان">
+  <meta property="og:description" content="محتوى صيدلاني وتثقيف صحي مبسط وتصميم محتوى طبي.">
+  <meta property="og:url" content="https://aminocure1.github.io/AminoCure/">
+  <meta property="og:image" content="https://aminocure1.github.io/AminoCure/logo.png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- مكتبة أيقونات التواصل -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Structured Data: Amino Cure -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://aminocure1.github.io/AminoCure/#website",
+        "url": "https://aminocure1.github.io/AminoCure/",
+        "name": "Amino Cure",
+        "alternateName": "Amino Cure | أمين تاج الدين عثمان",
+        "description": "محتوى صيدلاني وتثقيف صحي مبسط وتصميم محتوى طبي.",
+        "inLanguage": "ar",
+        "publisher": {
+          "@id": "https://aminocure1.github.io/AminoCure/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://aminocure1.github.io/AminoCure/#person",
+        "name": "أمين تاج الدين عثمان",
+        "alternateName": "Amin Taj Al-Din Othman",
+        "url": "https://aminocure1.github.io/AminoCure/",
+        "image": "https://aminocure1.github.io/AminoCure/profile.png",
+        "description": "مهتم بمجال الصيدلة وصناعة المحتوى الصيدلاني والتثقيف الصحي وتصميم المحتوى الطبي.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Amino Cure"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/ameentageldin",
+          "https://www.instagram.com/amin.8os/",
+          "https://www.facebook.com/profile.php?id=61567925348751",
+          "https://t.me/Amlodipeine"
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
-    <!-- Header -->
-<header>
+  <!-- شريط التنقل -->
+  <header class="header" id="top">
 
-    <a href="index.html" class="logo">
-        <img src="logo.png" alt="Amino Cure">
+    <a href="#home" class="logo">
+      <img src="logo.png" alt="Amino Cure" class="logo-image">
+      <span>Amino <b>Cure</b></span>
     </a>
 
-    <button class="menu-toggle" aria-label="فتح القائمة">
-        ☰
-    </button>
-
-    <nav>
-
-        <button class="menu-close" aria-label="إغلاق القائمة">
-            ×
-        </button>
-
-        <a href="index.html">الرئيسية</a>
-        <a href="about.html">نبذة عني</a>
-        <a href="work.html">أعمالي</a>
-        <a href="certificates.html">الشهادات والدورات</a>
-        <a href="contact.html">تواصل معي</a>
-
+    <nav class="nav" id="nav">
+      <a href="#home">الرئيسية</a>
+      <a href="#services">الخدمات</a>
+      <a href="#about">من أنا؟</a>
+      <a href="#work">أعمالي</a>
+      <a href="#certificates">الشهادات والدورات</a>
+      <a href="#faq">الأسئلة الشائعة</a>
+      <a href="#contact">تواصل معي</a>
     </nav>
 
-</header>
+    <div class="header-actions">
+<button
+  class="language-toggle"
+  id="languageToggle"
+  type="button"
+  aria-label="Switch language"
+  title="Switch language">
+  EN
+</button>
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="تبديل الوضع اللوني"
+        title="تبديل الوضع اللوني">☾</button>
 
-
-    <!-- Main -->
-    <main>
-
-        <!-- Hero -->
-        <section class="hero home-hero">
-
-            <img src="20260901_203949.png"
-                alt="Amino Cure"
-                class="hero-photo">
-
-            <h1>
-    Amino Cure
-    <br>
-    <span class="hero-tagline">معلومة أبسط، حياة أفضل.</span>
-</h1>
-            <div class="buttons">
-
-                <a href="about.html" class="btn btn-secondary">
-                    تعرّف عني
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- Services -->
-        <section class="section">
-
-            <p class="eyebrow">
-                SERVICES
-            </p>
-
-            <h2>
-                ماذا أقدم؟
-            </h2>
-
-            <div class="cards">
-
-                <div class="card">
-
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M7 4h10v16H7zM9 4V2h6v2M9 12h6M12 9v6"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.7"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-
-                    <h3>
-                        محتوى صيدلاني
-                    </h3>
-
-                    <p>
-                        تبسيط المعلومات الدوائية والصحية
-                        وتحويلها إلى محتوى مفهوم وسهل المتابعة.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M5 19l3.5-.8L19 7.7 16.3 5 5.8 15.5 5 19z"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.7"
-                                stroke-linejoin="round"/>
-                            <path d="M14.8 6.5l2.7 2.7"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.7"/>
-                        </svg>
-                    </div>
-
-                    <h3>
-                        تصميم محتوى طبي
-                    </h3>
-
-                    <p>
-                        تصميم منشورات وCarousels مناسبة
-                        للمحتوى الصحي والسوشيال ميديا.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="5" y="3" width="14" height="18" rx="3"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.7"/>
-                            <path d="M10 9l5 3-5 3V9z"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.7"
-                                stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-
-                    <h3>
-                        محتوى قصير
-                    </h3>
-
-                    <p>
-                        أفكار وصناعة محتوى مناسب للـReels
-                        والمحتوى السريع.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.7"
-                                stroke-linejoin="round"/>
-                            <path d="M19 15v6M16 18h6"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"/>
-                        </svg>
-                    </div>
-
-                    <h3>
-                        إدارة الهوية البصرية
-                    </h3>
-
-                    <p>
-                        الحفاظ على هوية بصرية متناسقة
-                        تجعل المحتوى أكثر وضوحًا وتميزًا.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Work -->
-<section class="section featured-work">
-
-    <p class="eyebrow">
-        MY WORK
-    </p>
-
-    <h2>
-        أعمالي
-    </h2>
-
-    <p class="section-intro">
-        نماذج من أعمالي في المحتوى والتصميم.
-    </p>
-
-    <div class="buttons">
-
-    <a href="work.html" class="btn btn-secondary">
-        مشاهدة أعمالي ←
-    </a>
-
-</div>
-
-</section>
-
-
-        <!-- Certificates -->
-<section class="section certificates">
-
-    <p class="eyebrow">
-        CERTIFICATES
-    </p>
-
-    <h2>
-        الشهادات والدورات
-    </h2>
-
-    <p class="section-intro">
-        شهادات ودورات تعكس مسيرتي وتطور مهاراتي.
-    </p>
-
-    <div class="buttons">
-
-        <a href="certificates.html" class="btn btn-primary">
-            مشاهدة الشهادات ←
-        </a>
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="فتح القائمة"
+        aria-expanded="false">☰</button>
 
     </div>
-
-</section>
-
-
-        <!-- CTA -->
-        <section class="section cta">
-
-            <h2>
-                لديك فكرة أو مشروع؟
-            </h2>
-
-            <p>
-                دعنا نتحدث.
-            </p>
-
-            <a href="contact.html" class="btn btn-primary">
-                تواصل معي
-            </a>
-
-        </section>
-
-    </main>
+  </header>
 
 
-    <!-- Footer -->
-    <footer>
+  <main>
 
-        <strong>
-            Amino Cure
-        </strong>
+    <!-- الواجهة الرئيسية -->
+    <section class="hero section" id="home">
 
-        <span>
-            Pharmaceutical Content & Visual Communication
+      <div class="hero-content">
+
+        <span class="eyebrow">
+          <span class="status-dot"></span>
+          صيدلة • تثقيف صحي • صناعة محتوى
         </span>
 
-    </footer>
+        <h1>
+          Amino Cure
+          <span class="gradient-text">معلومة أبسط، حياة أفضل.</span>
+        </h1>
+
+        <p class="hero-description">
+          محتوى صيدلاني مبسّط يساعدك على فهم الأدوية
+          والمعلومات الصحية بطريقة واضحة وموثوقة.
+        </p>
+
+        <div class="hero-actions">
+
+          <a href="#about" class="btn btn-primary">
+          نبذة عني <span>←</span>
+          </a>
+
+          <a href="#work" class="btn btn-secondary">
+            شاهد أعمالي
+          </a>
+
+        </div>
+
+        <div class="hero-note">
+          <span class="note-line"></span>
+          <span>المعلومة الصحيحة تبدأ بفهم أبسط.</span>
+        </div>
+
+      </div>
+
+      <!-- الصورة والعناصر البصرية -->
+      <div class="hero-visual">
+
+        <img
+          src="profile.png"
+          alt="صورة صاحب Amino Cure"
+          class="profile-image">
+
+        <div class="visual-orbit orbit-one"></div>
+        <div class="visual-orbit orbit-two"></div>
+        <div class="visual-glow"></div>
+
+        <div class="hero-symbol">
+          <span class="symbol-plus">+</span>
+          <span class="symbol-name">Amino</span>
+          <span class="symbol-name symbol-cure">Cure</span>
+          <span class="symbol-caption">HEALTH • KNOWLEDGE</span>
+        </div>
+
+        <span class="float-item float-one">صيدلة</span>
+        <span class="float-item float-two">محتوي</span>
+        <span class="float-item float-three">أمينو</span>
+
+      </div>
+
+    </section>
 
 
-    <script>
+    <!-- الخدمات -->
+    <section class="section content-section reveal" id="services">
 
-        const menuToggle =
-    document.querySelector('.menu-toggle');
+      <div class="section-heading reveal">
+        <span class="section-tag">ماذا أقدّم؟</span>
 
-const menuClose =
-    document.querySelector('.menu-close');
+        <h2>
+          معرفة صحية
+          <span class="gradient-text">بطريقة أبسط</span>
+        </h2>
 
-const nav =
-    document.querySelector('nav');
+        <p>
+          محتوى واضح وتصميم منظم يساعد على إيصال المعلومة بصورة أفضل.
+        </p>
+      </div>
 
-menuToggle.addEventListener('click', () => {
+      <div class="services-grid">
 
-    nav.classList.add('active');
+        <article class="service-card reveal">
+          <div class="card-icon icon-purple">✳</div>
+          <span class="card-number">01</span>
+          <h3>المحتوى الصيدلاني</h3>
+          <p>
+            تبسيط المعلومات المتعلقة بالأدوية والمفاهيم الصيدلانية
+            بلغة سهلة وواضحة.
+          </p>
+          <span class="card-arrow">←</span>
+        </article>
 
-});
+        <article class="service-card reveal">
+          <div class="card-icon icon-green">＋</div>
+          <span class="card-number">02</span>
+          <h3>التثقيف الصحي</h3>
+          <p>
+            إعداد محتوى توعوي يساعد الناس على فهم المعلومات الصحية
+            بصورة أفضل.
+          </p>
+          <span class="card-arrow">←</span>
+        </article>
 
-menuClose.addEventListener('click', () => {
+        <article class="service-card reveal">
+          <div class="card-icon icon-mixed">✦</div>
+          <span class="card-number">03</span>
+          <h3>تصميم المحتوى الطبي</h3>
+          <p>
+            تنسيق المعلومات الصحية في تصاميم بصرية مرتبة
+            وسهلة القراءة.
+          </p>
+          <span class="card-arrow">←</span>
+        </article>
 
-    nav.classList.remove('active');
+      </div>
+    </section>
 
-});
 
-    </script>
+    <!-- من أنا -->
+    <section class="section content-section reveal" id="about">
+
+      <div class="section-heading reveal">
+        <span class="section-tag">من أنا؟</span>
+      </div>
+
+      <div class="about-content reveal">
+
+        <div class="about-text">
+
+          <p>
+            أنا أمين تاج الدين عثمان، مهتم بمجال الصيدلة وصناعة المحتوى الصحي،
+            وأسعى من خلال Amino Cure إلى تقديم المعلومات
+            الطبية والصيدلانية بطريقة بسيطة وواضحة وقريبة من الناس.
+          </p>
+
+          <p>
+            أؤمن أن المعلومة الصحية الصحيحة، لما تصل بصورة سهلة،
+            بتساعد الناس على فهم صحتهم والتعامل مع أدويتهم بوعي أكبر.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- الأعمال -->
+    <section class="section content-section reveal" id="work">
+
+      <div class="section-heading reveal">
+        <span class="section-tag">أعمالي</span>
+
+        <p>
+          نماذج من الأعمال والمشاريع التي أعمل عليها
+          في صناعة المحتوى الصحي.
+        </p>
+      </div>
+
+      <div class="work-panel reveal">
+
+        <div class="work-decoration decoration-one"></div>
+        <div class="work-decoration decoration-two"></div>
+
+        <div class="work-placeholder">
+          <span class="work-placeholder-icon">✳</span>
+          <span class="work-placeholder-title">مساحة إبداعية</span>
+          <span class="work-placeholder-text">
+            ستُضاف نماذج الأعمال هنا لاحقاً
+          </span>
+        </div>
+
+        <div class="work-footer">
+
+          <div>
+            <span class="work-label">PORTFOLIO</span>
+            <h3>أعمال Amino Cure</h3>
+          </div>
+
+          <span class="work-count">قريباً ↙</span>
+
+        </div>
+
+      </div>
+
+      <p class="section-footnote reveal">
+        سنضيف صور الأعمال وروابطها بعد تجهيزها.
+      </p>
+
+    </section>
+
+          <!-- الشهادات والدورات -->
+<section class="section content-section reveal" id="certificates">
+
+  <div class="section-heading reveal">
+    <span class="section-tag">شهاداتي</span>
+    <h2>رحلتي في التعلّم <span class="gradient-text">والتطوير</span></h2>
+    <p>شهاداتي ودوراتي التعليمية مع روابط التحقق المتاحة.</p>
+  </div>
+
+  <div class="certificates-container">
+
+    <!-- الشهادة الأولى -->
+    <div class="certificates-grid">
+      <article class="certificate-card">
+
+        <a href="certificate12.png"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="عرض شهادة Data Sciences in Pharma">
+          <img
+            src="certificate12.png"
+            alt="Data Sciences in Pharma - Patient Centered Outcomes Research"
+            class="certificate-image"
+            loading="lazy">
+        </a>
+
+        <div class="certificate-content">
+          <h3>Data Sciences in Pharma - Patient Centered Outcomes Research</h3>
+
+          <a
+            href="https://www.coursera.org/account/accomplishments/verify/IADYWMI2KABT"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="certificate-button">
+            🔗 التحقق من الشهادة
+          </a>
+        </div>
+
+      </article>
+    </div>
+
+    <!-- زر جميع الشهادات -->
+<div style="text-align: center; margin: 30px 0;">
+  <a
+    href="./certificates.html"
+    style="
+      display: inline-block;
+      padding: 14px 26px;
+      background: #7654c8;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    ">
+    عرض جميع الشهادات ←
+  </a>
+</div>
+
+  </div>
+</section>
+
+    <!-- الأسئلة الشائعة -->
+    <section class="section content-section reveal" id="faq">
+
+      <div class="section-heading reveal">
+        <span class="section-tag">أسئلة شائعة</span>
+
+        <h2>
+          عندك سؤال؟
+          <span class="gradient-text">الإجابة هنا</span>
+        </h2>
+
+        <p>
+          إجابات مختصرة عن المحتوى والخدمات وطرق التعاون.
+        </p>
+      </div>
+
+      <div class="faq">
+
+        <details class="reveal">
+          <summary>
+            ما نوع المحتوى الذي تقدّمه؟
+            <span class="faq-icon">＋</span>
+          </summary>
+          <p>
+            أقدّم محتوى صيدلانيًا وتثقيفًا صحيًا مبسّطًا،
+            إضافة إلى تصميم منشورات وصور تساعد على توصيل المعلومة بوضوح.
+          </p>
+        </details>
+
+        <details class="reveal">
+          <summary>
+            هل المحتوى بديل عن استشارة الطبيب أو الصيدلي؟
+            <span class="faq-icon">＋</span>
+          </summary>
+          <p>
+            لا، المحتوى للتثقيف العام فقط، ولا يغني عن استشارة الطبيب
+            أو الصيدلي، خاصة عند اختيار دواء أو تعديل جرعته.
+          </p>
+        </details>
+
+        <details class="reveal">
+          <summary>
+            كيف أطلب خدمة أو تعاونًا؟
+            <span class="faq-icon">＋</span>
+          </summary>
+          <p>
+            يمكنك التواصل معي عبر وسائل التواصل الموجودة في قسم
+            «تواصل معي»، مع توضيح نوع الخدمة أو فكرة التعاون.
+          </p>
+        </details>
+
+        <details class="reveal">
+          <summary>
+            هل يمكن تصميم محتوى حسب الطلب؟
+            <span class="faq-icon">＋</span>
+          </summary>
+          <p>
+            نعم، يمكن مناقشة فكرة المحتوى والهدف منه وتحديد
+            التفاصيل المناسبة قبل بدء العمل.
+          </p>
+        </details>
+
+        <details class="reveal">
+          <summary>
+            كم تستغرق مدة التنفيذ؟
+            <span class="faq-icon">＋</span>
+          </summary>
+          <p>
+            تختلف المدة حسب نوع العمل وحجمه، ويتم الاتفاق على
+            موعد التسليم بعد تحديد التفاصيل.
+          </p>
+        </details>
+
+      </div>
+    </section>
+
+
+    <!-- التواصل -->
+    <section class="section content-section reveal" id="contact">
+
+      <div class="contact-panel reveal">
+
+        <div class="contact-decoration"></div>
+
+        <span class="section-tag">التواصل</span>
+
+        <h2>
+          عندك فكرة؟
+          <span class="gradient-text">خلينا نبدأ</span>
+        </h2>
+
+        <p>
+          للتواصل والاستفسارات والتعاون في مشاريع
+          المحتوى الصيدلاني والصحي.
+        </p>
+
+        <!-- أيقونات التواصل الاجتماعي -->
+        <div class="social-links">
+
+          <!-- البريد الإلكتروني -->
+          <a
+            href="mailto:Ameentageldin56@gmail.com"
+            class="social-link"
+            aria-label="البريد الإلكتروني"
+            title="البريد الإلكتروني">
+            <i class="fa-regular fa-envelope"></i>
+          </a>
+
+          <!-- تلغرام -->
+          <a
+            href="https://t.me/Amlodipeine"
+            class="social-link"
+            aria-label="تلغرام"
+            title="تلغرام"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+
+          <!-- لينكدإن -->
+          <a
+            href="https://www.linkedin.com/in/ameentageldin?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            class="social-link"
+            aria-label="لينكدإن"
+            title="لينكدإن"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+
+          <!-- إنستغرام -->
+          <a
+            href="https://www.instagram.com/amin.8os/"
+            class="social-link"
+            aria-label="إنستغرام"
+            title="إنستغرام"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <!-- فيسبوك -->
+          <a
+            href="https://www.facebook.com/profile.php?id=61567925348751"
+            class="social-link"
+            aria-label="فيسبوك"
+            title="فيسبوك"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+
+          <!-- واتساب -->
+          <a
+            href="https://wa.me/201130389749"
+            class="social-link"
+            aria-label="واتساب"
+            title="واتساب"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- التنويه الطبي -->
+  <section class="medical-disclaimer" aria-label="التنويه الطبي">
+    <span class="disclaimer-icon" aria-hidden="true">ⓘ</span>
+    <p>
+      <strong>تنويه طبي:</strong>
+      المحتوى للتثقيف الصحي فقط، ولا يُغني عن استشارة الطبيب أو الصيدلي،
+      ولا يُعدّ بديلًا عن التشخيص أو العلاج.
+    </p>
+  </section>
+
+
+  <!-- تذييل الموقع -->
+  <footer class="footer">
+
+    <a href="#top" class="logo">
+      <img src="logo.png" alt="Amino Cure" class="logo-image">
+      <span>Amino <b>Cure</b></span>
+    </a>
+
+    <p>معلومة أبسط، حياة أفضل.</p>
+
+    <p class="copyright">
+      © <span id="year">2026</span> Amino Cure
+    </p>
+
+  </footer>
+
+
+  <!-- زر الرجوع للأعلى -->
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="الرجوع إلى أعلى الصفحة"
+    title="الرجوع للأعلى">
+    ↑
+  </button>
+
+  <script src="script.js"></script>
 
 </body>
-
-</html>
+              </html>
