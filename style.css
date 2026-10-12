@@ -2934,3 +2934,384 @@ body.dark .certificate-description {
   background: #a18ae9;
   border-color: #a18ae9;
 }
+/* ========================================
+   ABOUT CARD — AMINO CURE
+   بطاقة تعريفية عصرية
+======================================== */
+
+#about .about-content {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  max-width: 820px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 42px 35px 32px;
+
+  border: 1px solid rgba(118, 84, 200, 0.2);
+  border-radius: 28px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(118, 84, 200, 0.10),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(22, 128, 92, 0.08),
+      transparent 38%
+    ),
+    var(--surface);
+
+  box-shadow: var(--shadow);
+
+  text-align: center;
+
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
+}
+
+/* خط زخرفي أعلى البطاقة */
+#about .about-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background: linear-gradient(
+    90deg,
+    var(--green),
+    var(--purple),
+    #a88aff
+  );
+}
+
+/* دوائر زخرفية هادئة */
+#about .about-content::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  width: 150px;
+  height: 150px;
+  left: -75px;
+  bottom: -75px;
+
+  border: 1px solid rgba(118, 84, 200, 0.12);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 18px rgba(118, 84, 200, 0.025),
+    0 0 0 36px rgba(22, 128, 92, 0.025);
+
+  pointer-events: none;
+}
+
+/* أيقونة الصيدلة */
+#about .about-card-icon {
+  display: grid;
+  place-items: center;
+
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 17px;
+
+  border: 1px solid rgba(118, 84, 200, 0.2);
+  border-radius: 23px;
+
+  background: var(--purple-light);
+
+  font-size: 35px;
+
+  box-shadow: 0 8px 22px rgba(118, 84, 200, 0.12);
+
+  animation: about-icon-float 4s ease-in-out infinite;
+}
+
+/* العبارة الصغيرة */
+#about .about-card-label {
+  display: inline-block;
+  margin-bottom: 8px;
+
+  color: var(--green);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* عنوان البطاقة */
+#about .about-card-title {
+  margin: 0 0 20px;
+
+  color: var(--purple);
+
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 900;
+  line-height: 1.6;
+}
+
+/* النص التعريفي */
+#about .about-text {
+  position: relative;
+  z-index: 1;
+
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+
+  text-align: center;
+  line-height: 2.2;
+}
+
+#about .about-text p {
+  margin: 0 0 15px;
+
+  color: var(--text-muted);
+
+  font-size: 16px;
+  line-height: 2.2;
+  text-align: center;
+}
+
+#about .about-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* علامات التخصص والاهتمامات */
+#about .about-tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 27px;
+  padding-top: 23px;
+
+  border-top: 1px solid var(--border);
+}
+
+#about .about-tags span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 9px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 30px;
+
+  background: var(--bg-soft);
+  color: var(--text);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    color 250ms ease;
+}
+
+#about .about-tags span:hover {
+  transform: translateY(-3px);
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+/* حركة الأيقونة */
+@keyframes about-icon-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* الوضع الداكن */
+body.dark #about .about-content {
+  border-color: rgba(168, 138, 255, 0.25);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(168, 138, 255, 0.10),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(85, 214, 161, 0.07),
+      transparent 38%
+    ),
+    var(--surface);
+}
+
+body.dark #about .about-card-title {
+  color: var(--purple);
+}
+
+body.dark #about .about-tags span {
+  background: var(--bg-soft);
+}
+
+/* الهواتف */
+@media (max-width: 700px) {
+  #about .about-content {
+    padding: 32px 20px 24px;
+    border-radius: 23px;
+  }
+
+  #about .about-card-icon {
+    width: 62px;
+    height: 62px;
+    border-radius: 20px;
+    font-size: 30px;
+  }
+
+  #about .about-card-title {
+    font-size: 23px;
+    margin-bottom: 15px;
+  }
+
+  #about .about-text p {
+    font-size: 14px;
+    line-height: 2.1;
+  }
+
+  #about .about-tags {
+    gap: 8px;
+    margin-top: 22px;
+    padding-top: 19px;
+  }
+
+  #about .about-tags span {
+    padding: 8px 11px;
+    font-size: 11px;
+  }
+}
+
+/* الهواتف الصغيرة */
+@media (max-width: 380px) {
+  #about .about-content {
+    padding: 28px 15px 21px;
+  }
+
+  #about .about-tags {
+    gap: 7px;
+  }
+
+  #about .about-tags span {
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+}
+
+/* احترام تفضيل تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+  #about .about-card-icon {
+    animation: none;
+  }
+
+  #about .about-content,
+  #about .about-tags span {
+    transition: none;
+  }
+}
+/* ========================================
+   AMINO CURE — بطاقة من أنا؟ بشكل مربع
+======================================== */
+
+#about .about-content {
+  max-width: 650px;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 25px 30px 22px;
+  border-radius: 24px;
+}
+
+#about .about-card-icon {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 10px;
+  border-radius: 17px;
+  font-size: 27px;
+}
+
+#about .about-card-label {
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+#about .about-card-title {
+  margin-bottom: 12px;
+  font-size: 23px;
+  line-height: 1.4;
+}
+
+#about .about-text {
+  max-width: 540px;
+  line-height: 1.8;
+}
+
+#about .about-text p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+#about .about-tags {
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 14px;
+}
+
+#about .about-tags span {
+  padding: 7px 11px;
+  font-size: 11px;
+}
+
+/* تنسيق الموبايل */
+@media (max-width: 600px) {
+  #about .about-content {
+    max-width: 100%;
+    padding: 23px 17px 19px;
+    border-radius: 21px;
+  }
+
+  #about .about-card-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+  }
+
+  #about .about-card-title {
+    font-size: 21px;
+  }
+
+  #about .about-text p {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  #about .about-tags {
+    gap: 7px;
+    margin-top: 14px;
+    padding-top: 12px;
+  }
+
+  #about .about-tags span {
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+}
