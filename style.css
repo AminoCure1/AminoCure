@@ -3591,3 +3591,13 @@ body.dark #about .about-tags span {
     box-sizing: border-box;
   }
 }
+/* معاينة دليل المتدربين داخل بطاقة الأعمال */
+.trainee-project-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  border-radius: 12px;
+}
