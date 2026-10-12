@@ -3315,3 +3315,279 @@ body.dark #about .about-tags span {
     font-size: 10px;
   }
 }
+/* ========================================
+   مشروع دليل المتدربين
+======================================== */
+
+.trainee-project {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.project-content {
+  position: relative;
+  z-index: 1;
+  padding: clamp(22px, 4vw, 38px);
+}
+
+.project-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.project-category,
+.project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.project-category {
+  color: var(--purple, #7654c8);
+}
+
+.project-status {
+  color: var(--green, #16805c);
+  background: var(--green-light, #e0f5eb);
+  padding: 8px 12px;
+  border-radius: 30px;
+}
+
+.project-status-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.project-icon {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  margin-bottom: 20px;
+  border-radius: 19px;
+  color: var(--purple, #7654c8);
+  background: var(--purple-light, #eee8ff);
+  font-size: 27px;
+}
+
+.project-title {
+  margin: 0 0 14px;
+  font-size: clamp(25px, 4vw, 34px);
+  line-height: 1.5;
+  color: var(--text, #20202b);
+}
+
+.project-description {
+  max-width: 650px;
+  margin: 0 0 22px;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--gray, #68736e);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 24px;
+}
+
+.project-tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--border, #e7e2f0);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--text, #20202b);
+  background: var(--surface, #ffffff);
+}
+
+.project-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 15px;
+  margin-bottom: 24px;
+  border-right: 3px solid var(--purple, #7654c8);
+  border-radius: 10px;
+  background: var(--surface, #ffffff);
+}
+
+.project-notice > i {
+  margin-top: 5px;
+  color: var(--purple, #7654c8);
+}
+
+.project-notice p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--gray, #68736e);
+}
+
+.project-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 13px 21px;
+  border-radius: 12px;
+  background: var(--purple, #7654c8);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.project-button:hover {
+  background: var(--purple-dark, #5d3db0);
+  transform: translateY(-2px);
+}
+
+.project-button:focus-visible {
+  outline: 3px solid var(--green, #16805c);
+  outline-offset: 4px;
+}
+
+.project-footer {
+  position: relative;
+  z-index: 1;
+  gap: 16px;
+}
+
+.project-footer-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: var(--purple, #7654c8);
+  background: var(--purple-light, #eee8ff);
+  font-size: 22px;
+}
+
+@media (max-width: 600px) {
+  .project-content {
+    padding: 22px 18px;
+  }
+
+  .project-topline {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 23px;
+  }
+
+  .project-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    font-size: 24px;
+  }
+
+  .project-description {
+    font-size: 14px;
+  }
+
+  .project-tags {
+    gap: 8px;
+  }
+
+  .project-tags span {
+    font-size: 12px;
+    padding: 7px 9px;
+  }
+
+  .project-button {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* توسيط جميع محتويات بطاقة دليل المتدربين */
+
+.trainee-project .project-content {
+  text-align: center;
+}
+
+.trainee-project .project-topline {
+  justify-content: center;
+  align-items: center;
+}
+
+.trainee-project .project-icon {
+  margin-inline: auto;
+}
+
+.trainee-project .project-title,
+.trainee-project .project-description {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.trainee-project .project-tags {
+  justify-content: center;
+}
+
+.trainee-project .project-notice {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-right: none;
+  border-top: 3px solid var(--purple, #7654c8);
+}
+
+.trainee-project .project-notice > i {
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+.trainee-project .project-button {
+  justify-content: center;
+  margin-inline: auto;
+}
+
+.trainee-project .project-footer {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.trainee-project .project-footer > div {
+  text-align: center;
+}
+
+.trainee-project .project-footer-mark {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .trainee-project .project-topline {
+    flex-direction: column;
+  }
+
+  .trainee-project .project-notice {
+    flex-direction: column;
+  }
+
+  .trainee-project .project-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
