@@ -3613,3 +3613,59 @@ body.dark #about .about-tags span {
     margin: 20px auto;
   }
 }
+/* إظهار روابط القائمة */
+.nav a {
+  display: inline-flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* منع إخفاء رابط دليل المتدربين */
+.nav a[href*="AminoCure-Trainee-Guide"] {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+/* =================================
+   تنظيم قائمة التنقل على اللابتوب
+================================= */
+
+@media (min-width: 1025px) {
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .header .logo {
+    flex-shrink: 0;
+  }
+
+  .header .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: clamp(10px, 1.2vw, 20px);
+    min-width: 0;
+  }
+
+  .header .nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: clamp(13px, 0.95vw, 15px);
+    flex-shrink: 0;
+  }
+
+  .header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+}
