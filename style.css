@@ -3669,3 +3669,283 @@ body.dark #about .about-tags span {
   }
 
 }
+
+/* ==========================================
+   AMINO CURE — RESPONSIVE HEADER FINAL
+   Laptop • Tablet • Modern Phones
+========================================== */
+
+/* الهيدر */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 24px);
+  width: 100%;
+  padding: 10px max(24px, calc((100% - 1160px) / 2));
+}
+
+/* ضبط الشعار ومنع تضخمه بسبب القواعد القديمة */
+.header a.logo {
+  min-width: 0;
+  gap: 9px;
+  white-space: nowrap;
+  font-size: clamp(15px, 1.3vw, 19px);
+}
+
+.header a.logo img.logo-image {
+  display: block;
+  width: 54px !important;
+  height: 54px !important;
+  min-width: 54px !important;
+  max-width: 54px !important;
+  flex: 0 0 54px !important;
+  object-fit: contain;
+}
+
+/* روابط الكمبيوتر واللابتوب */
+.header .nav {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: clamp(9px, 1.2vw, 18px);
+  min-width: 0;
+  max-height: none;
+  overflow: visible;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  direction: inherit;
+}
+
+.header .nav a {
+  flex: 0 0 auto;
+  padding: 9px 0;
+  font-size: clamp(11px, 0.95vw, 13px);
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+/* أزرار الهيدر */
+.header .header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.header .theme-toggle,
+.header .language-toggle {
+  flex: 0 0 auto;
+  min-width: 42px;
+  height: 42px;
+}
+
+.header .menu-toggle {
+  display: none;
+}
+
+/* اللابتوبات الصغيرة والأجهزة اللوحية */
+@media (max-width: 1100px) {
+  .header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    padding: 10px 22px;
+  }
+
+  .header a.logo img.logo-image {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    max-width: 48px !important;
+    flex-basis: 48px !important;
+  }
+
+  .header .nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    inset-inline: 22px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 4px;
+
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+
+    transition:
+      opacity var(--transition),
+      transform var(--transition),
+      visibility var(--transition);
+  }
+
+  .header .nav.open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .header .nav a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.7;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .header .nav a:hover {
+    background: var(--bg-soft);
+  }
+
+  .header .nav a::after {
+    display: none;
+  }
+
+  .header .menu-toggle {
+    display: grid;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* الهواتف الحديثة */
+@media (max-width: 700px) {
+  .header {
+    padding: 9px 16px;
+    gap: 8px;
+  }
+
+  .header a.logo {
+    gap: 7px;
+    font-size: 15px;
+  }
+
+  .header a.logo img.logo-image {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    max-width: 44px !important;
+    flex-basis: 44px !important;
+  }
+
+  .header .header-actions {
+    gap: 6px;
+  }
+
+  .header .theme-toggle,
+  .header .language-toggle,
+  .header .menu-toggle {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .header .menu-toggle {
+    flex-basis: 40px;
+  }
+
+  .header .nav {
+    inset-inline: 12px;
+    max-height: calc(100vh - 85px);
+    max-height: calc(100dvh - 85px);
+    border-radius: 16px;
+  }
+
+  .header .nav a {
+    padding: 12px 13px;
+    font-size: 14px;
+  }
+}
+
+/* الهواتف الضيقة */
+@media (max-width: 380px) {
+  .header {
+    padding-inline: 10px;
+    gap: 6px;
+  }
+
+  .header a.logo {
+    gap: 5px;
+    font-size: 13px;
+  }
+
+  .header a.logo img.logo-image {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
+    flex-basis: 38px !important;
+  }
+
+  .header .header-actions {
+    gap: 4px;
+  }
+
+  .header .theme-toggle,
+  .header .language-toggle,
+  .header .menu-toggle {
+    min-width: 34px;
+    width: 34px;
+    height: 36px;
+    padding-inline: 4px;
+  }
+
+  .header .menu-toggle {
+    flex-basis: 34px;
+  }
+
+  .header .nav {
+    inset-inline: 8px;
+  }
+}
+
+/* أجهزة اللمس: إزالة حركة التحويم المزعجة */
+@media (hover: none) {
+  .header .theme-toggle:hover,
+  .header .language-toggle:hover,
+  .header .menu-toggle:hover {
+    transform: none;
+  }
+}
+
+/* احترام تفضيل تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+  .header .nav {
+    transition: none;
+  }
+}
