@@ -634,4 +634,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+/* إصلاح التنقل بين أقسام الموقع */
+(() => {
+  const nav = document.getElementById("nav");
+  const menuToggle = document.getElementById("menuToggle");
 
+  if (!nav) return;
+
+  nav.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
+      const target = document.getElementById(targetId.slice(1));
+
+      if (!target) return;
+
+      event.preventDefault();
+
+      nav.classList.remove("active");
+
+      if (menuToggle) {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "فتح القائمة");
+      }
+
+      history.replaceState(null, "", targetId);
+
+      target.scrollIntoView({
+        behavior: "auto",
+        block: "start"
+      });
+    });
+  });
+})();
