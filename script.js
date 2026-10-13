@@ -105,14 +105,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const translations = [
     // القائمة الرئيسية
-    [".nav a:nth-child(1)", "الرئيسية", "Home"],
-    [".nav a:nth-child(2)", "الخدمات", "Services"],
-    [".nav a:nth-child(3)", "من أنا؟", "About Me"],
-    [".nav a:nth-child(4)", "أعمالي", "Portfolio"],
-    [".nav a:nth-child(5)", "الشهادات والدورات", "Certificates & Courses"],
-    [".nav a:nth-child(6)", "الأسئلة الشائعة", "FAQ"],
-    [".nav a:nth-child(7)", "تواصل معي", "Contact"],
-
+    // القائمة الرئيسية — ترتيب الروابط الصحيح
+[".nav a:nth-child(1)", "الرئيسية", "Home"],
+[".nav a:nth-child(2)", "الخدمات", "Services"],
+[".nav a:nth-child(3)", "من أنا؟", "About Me"],
+[".nav a:nth-child(4)", "أعمالي", "Portfolio"],
+[".nav a:nth-child(5)", "دليل المتدربين", "Trainee Guide"],
+[".nav a:nth-child(6)", "الشهادات والدورات", "Certificates & Courses"],
+[".nav a:nth-child(7)", "الأسئلة الشائعة", "FAQ"],
+[".nav a:nth-child(8)", "تواصل معي", "Contact"],
     // الواجهة الرئيسية
     [
       ".eyebrow",
@@ -634,35 +635,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-/* إصلاح التنقل بين أقسام الموقع */
-(() => {
-  const nav = document.getElementById("nav");
-  const menuToggle = document.getElementById("menuToggle");
 
-  if (!nav) return;
-
-  nav.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const targetId = link.getAttribute("href");
-      const target = document.getElementById(targetId.slice(1));
-
-      if (!target) return;
-
-      event.preventDefault();
-
-      nav.classList.remove("active");
-
-      if (menuToggle) {
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "فتح القائمة");
-      }
-
-      history.replaceState(null, "", targetId);
-
-      target.scrollIntoView({
-        behavior: "auto",
-        block: "start"
-      });
-    });
-  });
-})();
