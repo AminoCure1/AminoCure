@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#7654c8">
+
+  <meta
+    name="description"
+    content="اكتشف مشاريع أمين تاج الدين عثمان في الصيدلة والتثقيف الصحي والتطبيقات التعليمية.">
+
+  <title>مشاريعي | Amino Cure</title>
+
+  <link rel="icon" type="image/png" href="favicon1.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <style>
+    /* صفحة المشاريع */
+
+    .projects-page-intro {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 38px;
+    }
+
+    .projects-page-intro p {
+      line-height: 1.9;
+    }
+
+    .projects-page-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .projects-page-card {
+      min-width: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+      border: 1px solid rgba(118, 84, 200, 0.18);
+      background: var(--card-bg, #ffffff);
+      box-shadow: 0 8px 28px rgba(35, 24, 70, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .projects-page-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 34px rgba(35, 24, 70, 0.11);
+    }
+
+    .projects-page-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      display: block;
+      object-fit: cover;
+      background: #eee8ff;
+    }
+
+    .projects-page-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .projects-page-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #7654c8;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .projects-page-content h3 {
+      margin: 0 0 12px;
+      font-size: 21px;
+      line-height: 1.5;
+    }
+
+    .projects-page-content p {
+      font-size: 14px;
+      line-height: 1.9;
+      margin: 0 0 20px;
+      flex: 1;
+    }
+
+    .projects-page-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: #16805c;
+      margin-bottom: 18px;
+    }
+
+    .projects-page-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #16805c;
+    }
+
+    .projects-page-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: #7654c8;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 0.2s ease;
+    }
+
+    .projects-page-button:hover {
+      background: #5d3db0;
+    }
+
+    .projects-page-back {
+      text-align: center;
+      margin-top: 38px;
+    }
+
+    .projects-page-back a {
+      color: #7654c8;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    html[data-theme="dark"] .projects-page-card {
+      background: var(--card-bg, #201b32);
+      border-color: rgba(160, 132, 230, 0.2);
+    }
+
+    html[data-theme="dark"] .projects-page-content h3 {
+      color: #ffffff;
+    }
+
+    html[data-theme="dark"] .projects-page-content p {
+      color: #d0cbdc;
+    }
+
+    @media (max-width: 650px) {
+      .projects-page-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+      }
+
+      .projects-page-content {
+        padding: 18px;
+      }
+
+      .projects-page-content h3 {
+        font-size: 19px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .projects-page-card,
+      .projects-page-button {
+        transition: none;
+      }
+
+      .projects-page-card:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- رأس الصفحة -->
+  <header class="header" id="top">
+
+    <a href="index.html#home" class="logo">
+      <picture>
+        <source srcset="logo.webp" type="image/webp">
+        <img
+          src="logo.png"
+          alt="Amino Cure"
+          class="logo-image"
+          width="76"
+          height="76">
+      </picture>
+
+      <span>Amino <b>Cure</b></span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="index.html#home">الرئيسية</a>
+      <a href="index.html#services">الخدمات</a>
+      <a href="index.html#about">من أنا؟</a>
+      <a href="projects.html" aria-current="page">مشاريعي</a>
+      <a href="index.html#certificates">الشهادات والدورات</a>
+      <a href="index.html#contact">تواصل معي</a>
+    </nav>
+
+    <div class="header-actions">
+
+      <button
+        class="language-toggle"
+        id="languageToggle"
+        type="button"
+        aria-label="Switch language"
+        title="Switch language">
+        EN
+      </button>
+
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="تبديل الوضع اللوني"
+        title="تبديل الوضع اللوني">
+        ☾
+      </button>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="فتح القائمة"
+        aria-expanded="false">
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+  <main>
+
+    <section class="section content-section">
+
+      <div class="section-heading projects-page-intro">
+
+        <span class="section-tag">معرض الأعمال</span>
+
+        <h1>
+          مشاريعي
+          <span class="gradient-text">الرقمية</span>
+        </h1>
+
+        <p>
+          مجموعة من المشاريع التي أعمل عليها لتقديم أفكار مفيدة
+          في مجال الصيدلة والتثقيف الصحي والتعلّم الرقمي.
+        </p>
+
+      </div>
+
+      <div class="projects-page-grid">
+
+        <!-- المشروع الأول: دليل المتدربين -->
+        <article class="projects-page-card">
+
+          <img
+            src="about.png"
+            alt="معاينة دليل المتدربين الصيدلي"
+            class="projects-page-image"
+            width="800"
+            height="500"
+            loading="lazy">
+
+          <div class="projects-page-content">
+
+            <span class="projects-page-category">
+              <i class="fa-solid fa-book-open-reader"
+                 aria-hidden="true"></i>
+              مشروع ويب
+            </span>
+
+            <h3>دليل المتدربين الصيدلي</h3>
+
+            <p>
+              دليل إلكتروني يهدف إلى مساعدة المتدربين على اكتشاف
+              المعلومات والموارد التي قد تفيدهم خلال رحلتهم التدريبية.
+            </p>
+
+            <span class="projects-page-status">
+              <span class="projects-page-status-dot"></span>
+              قيد التطوير والتحسين
+            </span>
+
+            <a
+              href="https://aminocure1.github.io/AminoCure-Trainee-Guide/"
+              class="projects-page-button"
+              target="_blank"
+              rel="noopener noreferrer">
+
+              <span>زيارة المشروع</span>
+
+              <i class="fa-solid fa-arrow-up-left-from-circle"
+                 aria-hidden="true"></i>
+
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- المشروع الثاني: Pharmacy Memory -->
+        <article class="projects-page-card">
+
+          <img
+            src="pharmacy-memory.png"
+            alt="معاينة تطبيق Pharmacy Memory"
+            class="projects-page-image"
+            width="800"
+            height="500"
+            loading="lazy">
+
+          <div class="projects-page-content">
+
+            <span class="projects-page-category">
+              <i class="fa-solid fa-capsules"
+                 aria-hidden="true"></i>
+              تطبيق تعليمي
+            </span>
+
+            <h3>Pharmacy Memory</h3>
+
+            <p>
+              تطبيق تعليمي تفاعلي لمراجعة المعلومات الصيدلانية
+              والتدرّب على الأسئلة والبطاقات التعليمية.
+            </p>
+
+            <span class="projects-page-status">
+              <span class="projects-page-status-dot"></span>
+              متاح للتجربة
+            </span>
+
+            <a
+              href="https://aminocure1.github.io/pharmacy-memory-Amino-cure-/"
+              class="projects-page-button"
+              target="_blank"
+              rel="noopener noreferrer">
+
+              <span>جرّب التطبيق</span>
+
+              <i class="fa-solid fa-arrow-up-left-from-circle"
+                 aria-hidden="true"></i>
+
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+      <div class="projects-page-back">
+        <a href="index.html#work">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          العودة إلى الصفحة الرئيسية
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- تذييل الصفحة -->
+  <footer class="footer">
+
+    <a href="index.html#home" class="logo">
+      <picture>
+        <source srcset="logo.webp" type="image/webp">
+        <img
+          src="logo.png"
+          alt="Amino Cure"
+          class="logo-image"
+          width="76"
+          height="76"
+          loading="lazy">
+      </picture>
+
+      <span>Amino <b>Cure</b></span>
+    </a>
+
+    <p>معلومة أبسط، حياة أفضل.</p>
+
+    <p class="copyright">
+      © <span id="year">2026</span> Amino Cure
+    </p>
+
+  </footer>
+
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="الرجوع إلى أعلى الصفحة"
+    title="الرجوع للأعلى">
+    ↑
+  </button>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
