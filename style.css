@@ -2873,6 +2873,15 @@ body.dark .certificate-description {
 #about .about-text p {
   margin-bottom: 20px;
 }
+
+/* ========================================
+   IMAGE LOADING — AMINO CURE
+   وسم picture لا يؤثر على التصميم (يبقى img هو العنصر الظاهر)
+======================================== */
+
+picture {
+  display: contents;
+}
 /* أزرار التحقق من الشهادات */
 .certificate-button {
   display: inline-flex;
@@ -3315,6 +3324,7 @@ body.dark #about .about-tags span {
     font-size: 10px;
   }
 }
+
 /* ========================================
    مشروع دليل المتدربين
 ======================================== */
@@ -3601,74 +3611,16 @@ body.dark #about .about-tags span {
   margin: 0 auto 20px;
   border-radius: 12px;
 }
-/* ضبط صورة دليل المتدربين على اللابتوب فقط */
-@media (min-width: 769px) {
-  .trainee-project-image {
-    display: block;
-    width: 100%;
-    max-width: 480px;
-    height: 280px;
-    object-fit: contain;
-    object-position: center;
-    margin: 20px auto;
-  }
-}
-/* إظهار روابط القائمة */
-.nav a {
-  display: inline-flex;
-  visibility: visible;
-  opacity: 1;
-}
 
-/* منع إخفاء رابط دليل المتدربين */
-.nav a[href*="AminoCure-Trainee-Guide"] {
-  display: inline-flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-/* =================================
-   تنظيم قائمة التنقل على اللابتوب
-================================= */
-
-@media (min-width: 1025px) {
-
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-  }
-
-  .header .logo {
-    flex-shrink: 0;
-  }
-
-  .header .nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    gap: clamp(10px, 1.2vw, 20px);
-    min-width: 0;
-  }
-
-  .header .nav a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    font-size: clamp(13px, 0.95vw, 15px);
-    flex-shrink: 0;
-  }
-
-  .header .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-  }
-
-}
+/* ==========================================
+   AMINO CURE — RESPONSIVE HEADER PRO
+   Responsive navigation for all screen sizes
+   No color overrides
+=====;===================================== */
+/* ==========================================
+   AMINO CURE — RESPONSIVE NAVIGATION
+   الهواتف القديمة والحديثة والتابلت واللابتوب
+========================================== */
 
 /* ==========================================
    AMINO CURE — RESPONSIVE HEADER FINAL
@@ -3949,96 +3901,59 @@ body.dark #about .about-tags span {
     transition: none;
   }
 }
-/* ==========================================
-   AMINO CURE — PROJECTS CTA
-   Responsive • Light & Dark Mode
-========================================== */
+/* =====================================
+   AMINO CURE — PROJECTS CALL TO ACTION
+===================================== */
 
-/* بطاقة استكشاف المشاريع */
 .projects-cta {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 560px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 28px 22px;
+  padding: 32px 24px;
   text-align: center;
-
-  background: #ffffff;
-  color: #20202b;
-
-  border: 1px solid rgba(118, 84, 200, 0.18);
-  border-radius: 20px;
-
-  box-shadow: 0 8px 25px rgba(35, 24, 70, 0.06);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: 22px;
+  border: 1px solid rgba(118, 84, 200, 0.2);
+  background: var(--card-bg, #ffffff);
+  box-shadow: 0 10px 30px rgba(35, 24, 70, 0.06);
 }
 
-/* الأيقونة */
 .projects-cta-icon {
-  width: 58px;
-  height: 58px;
-  margin: 0 auto 16px;
-
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 16px;
+  border-radius: 18px;
   background: #eee8ff;
   color: #7654c8;
-
-  font-size: 24px;
+  font-size: 25px;
 }
 
-/* العنوان */
 .projects-cta h3 {
-  margin: 0 0 10px;
-  color: #20202b;
-
-  font-size: 22px;
-  line-height: 1.6;
-  text-align: center;
+  margin: 0 0 12px;
+  font-size: 23px;
 }
 
-/* الوصف */
 .projects-cta p {
-  max-width: 400px;
-  margin: 0 auto 22px;
-
-  color: #68736e;
-  font-size: 14px;
+  max-width: 420px;
+  margin: 0 auto 24px;
+  font-size: 15px;
   line-height: 1.9;
-  text-align: center;
 }
 
-/* زر استكشاف المشاريع */
 .projects-cta-button {
-  box-sizing: border-box;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-
-  min-height: 46px;
-  padding: 12px 22px;
-
-  border: none;
+  gap: 12px;
+  min-height: 48px;
+  padding: 13px 24px;
   border-radius: 12px;
-
   background: #7654c8;
   color: #ffffff;
-
-  font-size: 14px;
-  font-weight: 700;
   text-decoration: none;
-
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
+  font-weight: 700;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .projects-cta-button:hover {
@@ -4046,13 +3961,255 @@ body.dark #about .about-tags span {
   transform: translateY(-2px);
 }
 
-/* الوضع الداكن — متوافق مع script.js */
+html[data-theme="dark"] .projects-cta {
+  background: var(--card-bg, #201b32);
+  border-color: rgba(160, 132, 230, 0.2);
+}
+
+html[data-theme="dark"] .projects-cta h3 {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .projects-cta p {
+  color: #d0cbdc;
+}
+
+html[data-theme="dark"] .projects-cta-icon {
+  background: #33284d;
+  color: #c4afff;
+}
+
+@media (max-width: 600px) {
+  .projects-cta {
+    padding: 26px 18px;
+  }
+
+  .projects-cta h3 {
+    font-size: 21px;
+  }
+
+  .projects-cta p {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-cta-button {
+    transition: none;
+  }
+}
+/* =================================
+   إصلاح بطاقات المشاريع في الوضع الداكن
+================================= */
+
+html[data-theme="dark"] .projects-page-card,
+html[data-theme="dark"] .projects-cta {
+  background: #201b32 !important;
+  border-color: rgba(160, 132, 230, 0.22);
+  color: #f3efff;
+}
+
+html[data-theme="dark"] .projects-page-content h3,
+html[data-theme="dark"] .projects-cta h3 {
+  color: #f3efff !important;
+}
+
+html[data-theme="dark"] .projects-page-content p,
+html[data-theme="dark"] .projects-cta p {
+  color: #c9c3d8 !important;
+}
+/* =================================
+   تحسين تناسق بطاقات المشاريع
+================================= */
+
+.projects-page-grid {
+  max-width: 900px;
+  margin-inline: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.projects-page-card {
+  border-radius: 16px;
+}
+
+.projects-page-image {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.projects-page-content {
+  padding: 18px;
+}
+
+.projects-page-content h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.projects-page-content p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.projects-page-button {
+  min-height: 44px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+/* الهواتف */
+@media (max-width: 650px) {
+  .projects-page-grid {
+    max-width: 420px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .projects-page-image {
+    aspect-ratio: 16 / 9;
+  }
+
+  .projects-page-content {
+    padding: 16px;
+  }
+
+  .projects-page-content h3 {
+    font-size: 18px;
+  }
+}
+/* =================================
+   تنسيق بطاقات المشاريع والصور
+================================= */
+
+.projects-page-grid {
+  max-width: 850px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* البطاقة */
+.projects-page-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 18px;
+  text-align: center;
+  min-width: 0;
+}
+
+/* مساحة الصورة */
+.projects-page-image {
+  display: block;
+  width: 100%;
+  height: 190px;
+  aspect-ratio: auto;
+  object-fit: contain !important;
+  object-position: center;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #f5f3fa;
+}
+
+/* محتوى البطاقة */
+.projects-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 18px 16px;
+  text-align: center;
+}
+
+/* عنوان المشروع */
+.projects-page-content h3 {
+  font-size: 19px;
+  line-height: 1.6;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+/* وصف المشروع */
+.projects-page-content p {
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+/* حالة المشروع */
+.projects-page-content .project-status {
+  margin-top: auto;
+}
+
+/* زر المشروع */
+.projects-page-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 43px;
+  margin-top: 12px;
+  padding: 10px 18px;
+  text-align: center;
+  border-radius: 11px;
+}
+
+/* الوضع الداكن */
+html[data-theme="dark"] .projects-page-image {
+  background: #292238;
+}
+
+html[data-theme="dark"] .projects-page-card {
+  background: #201b32 !important;
+  color: #f3efff;
+}
+
+html[data-theme="dark"] .projects-page-content h3 {
+  color: #f3efff;
+}
+
+html[data-theme="dark"] .projects-page-content p {
+  color: #d0cbdc;
+}
+
+/* الهواتف */
+@media (max-width: 650px) {
+  .projects-page-grid {
+    max-width: 380px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .projects-page-image {
+    height: 180px;
+  }
+
+  .projects-page-content {
+    padding: 16px;
+  }
+
+  .projects-page-content h3 {
+    font-size: 18px;
+  }
+
+  .projects-page-content p {
+    font-size: 13px;
+  }
+}
+/* إصلاح بطاقة الأعمال في الصفحة الرئيسية - الوضع الداكن */
+
 body.dark .projects-cta {
   background: #201b32 !important;
+  border-color: rgba(160, 132, 230, 0.25) !important;
   color: #f3efff !important;
-
-  border-color: rgba(160, 132, 230, 0.25);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 body.dark .projects-cta h3 {
@@ -4069,43 +4226,401 @@ body.dark .projects-cta-icon {
 }
 
 body.dark .projects-cta-button {
+  color: #ffffff !important;
+}
+/* =================================
+   AMINO CURE - SOCIAL FOLLOW
+================================= */
+
+.social-follow {
+  max-width: 760px;
+  margin: 45px auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.social-follow-header {
+  margin-bottom: 24px;
+}
+
+.social-label {
+  display: inline-block;
+  color: #7654c8;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.social-follow-header h2 {
+  font-size: clamp(21px, 4vw, 28px);
+  margin: 0 0 8px;
+  color: var(--primary, #7654c8);
+}
+
+.social-follow-header p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.social-follow-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.social-follow-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 12px;
+  border: 1px solid rgba(118, 84, 200, 0.2);
+  border-radius: 18px;
+  background: var(--card-bg, #fff);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.social-follow-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(118, 84, 200, 0.13);
+}
+
+.social-follow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  color: #fff;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.facebook-icon {
+  background: #1877f2;
+  font-family: Arial, sans-serif;
+}
+
+.instagram-icon {
+  background: linear-gradient(
+    45deg,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+}
+
+.social-follow-card h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.social-follow-button {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 30px;
+  background: #7654c8;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.social-follow-description {
+  max-width: 520px;
+  margin: 22px auto 0;
+  font-size: 14px;
+  line-height: 1.9;
+  opacity: 0.8;
+}
+
+@media (max-width: 400px) {
+  .social-follow {
+    padding: 24px 12px;
+  }
+
+  .social-follow-grid {
+    gap: 10px;
+  }
+
+  .social-follow-card {
+    padding: 20px 8px;
+  }
+
+  .social-follow-icon {
+    width: 54px;
+    height: 54px;
+  }
+}
+/* =================================
+   AMINO CURE - FOLLOW CARD
+================================= */
+
+.follow-section {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 35px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.follow-card {
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 30px 24px;
+  text-align: center;
+
+  background: var(--card-bg, #ffffff);
+  color: var(--text-color, #292438);
+
+  border: 1px solid rgba(118, 84, 200, 0.22);
+  border-radius: 24px;
+
+  box-shadow: 0 10px 30px rgba(50, 30, 90, 0.09);
+}
+
+/* الصورة */
+.follow-profile {
+  width: 220px;
+  height: 220px;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0 auto 20px;
+  border: 3px solid #7654c8;
+  border-radius: 18px;
+}
+
+/* اسم الهوية */
+.follow-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #7654c8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* العنوان */
+.follow-card h2 {
+  margin: 0 0 12px;
+  color: var(--primary, #7654c8);
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+/* النبذة */
+.follow-description {
+  max-width: 370px;
+  margin: 0 auto 24px;
+  font-size: 15px;
+  line-height: 1.9;
+  opacity: 0.85;
+}
+
+/* الأزرار */
+.follow-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+}
+
+.follow-btn {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 8px;
+  border-radius: 12px;
+
+  color: #ffffff !important;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+
+  transition: transform 0.2s ease,
+              opacity 0.2s ease;
+}
+
+.follow-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+
+
+.facebook-btn,
+.instagram-btn {
   background: #7654c8;
   color: #ffffff !important;
 }
 
-body.dark .projects-cta-button:hover {
-  background: #5d3db0;
+.facebook-btn:hover,
+.instagram-btn:hover {
+  background: #6040ad;
+}
+/* الوضع الداكن */
+html[data-theme="dark"] .follow-card,
+body.dark .follow-card {
+  background: #1f1b2e;
+  color: #f3efff;
+  border-color: rgba(180, 155, 255, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* الهواتف */
-@media (max-width: 600px) {
-  .projects-cta {
-    padding: 24px 17px;
-    border-radius: 17px;
-  }
-
-  .projects-cta-icon {
-    width: 52px;
-    height: 52px;
-    font-size: 22px;
-  }
-
-  .projects-cta h3 {
-    font-size: 20px;
-  }
-
-  .projects-cta p {
-    font-size: 13px;
-  }
-
-  .projects-cta-button {
-    min-height: 44px;
-    padding: 11px 19px;
-  }
+html[data-theme="dark"] .follow-card h2,
+body.dark .follow-card h2 {
+  color: #bba5ff;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .projects-cta-button {
-    transition: none;
+/* الموبايل */
+@media (max-width: 480px) {
+  .follow-section {
+    padding: 25px 14px;
+  }
+
+  .follow-card {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+
+  .follow-profile {
+    width: 170px;
+    height: 170px;
+  }
+
+  .follow-card h2 {
+    font-size: 21px;
+  }
+
+  .follow-description {
+    font-size: 14px;
+  }
+
+  .follow-buttons {
+    gap: 9px;
+  }
+
+  .follow-btn {
+    padding: 12px 6px;
+    font-size: 12px;
+  }
+}
+/* =====================================
+   AMINO CURE - RESPONSIVE FOLLOW CARD
+===================================== */
+
+.follow-section {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: clamp(20px, 4vw, 40px) 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.follow-card {
+  width: 100%;
+  max-width: 480px;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: clamp(18px, 4vw, 30px);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* الصورة تتناسب مع مساحة البطاقة */
+.follow-profile {
+  display: block;
+  width: clamp(170px, 45vw, 220px);
+  height: clamp(170px, 45vw, 220px);
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto 20px;
+  box-sizing: border-box;
+}
+
+/* النصوص */
+.follow-card h2 {
+  font-size: clamp(19px, 3.5vw, 24px);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.follow-description {
+  width: 100%;
+  max-width: 370px;
+  margin: 0 auto 24px;
+  font-size: clamp(13px, 2.5vw, 15px);
+  line-height: 1.9;
+}
+
+/* الأزرار */
+.follow-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.follow-btn {
+  flex: 1 1 150px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 12px 10px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+  font-size: clamp(12px, 2.5vw, 14px);
+}
+
+/* الشاشات الصغيرة جدًا */
+@media (max-width: 360px) {
+  .follow-section {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .follow-card {
+    padding: 18px 12px;
+    border-radius: 18px;
+  }
+
+  .follow-profile {
+    width: 165px;
+    height: 165px;
+  }
+
+  .follow-buttons {
+    flex-direction: column;
+  }
+
+  .follow-btn {
+    width: 100%;
+    flex: 0 0 auto;
+    font-size: 14px;
   }
 }
