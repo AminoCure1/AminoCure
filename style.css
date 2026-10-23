@@ -4778,3 +4778,18 @@ body.dark .projects-page-disclaimer {
     font-size: 11px;
   }
 }
+/* توسيط الكارت الأخير لو عدد الكروت فردي */
+@media (min-width: 651px) {
+  .projects-page-grid > .projects-page-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 11px);
+  }
+}
+.projects-page-card .projects-page-status.is-dev {
+  color: #b97a0a;
+}
+
+.projects-page-card .projects-page-status.is-dev .projects-page-status-dot {
+  background: #d99a1e;
+}
