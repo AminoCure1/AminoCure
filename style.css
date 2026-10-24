@@ -4793,3 +4793,755 @@ body.dark .projects-page-disclaimer {
 .projects-page-card .projects-page-status.is-dev .projects-page-status-dot {
   background: #d99a1e;
 }
+/* ========================================
+   ENGLISH MODE — ARROWS
+======================================== */
+
+html[lang="en"] .fa-arrow-left,
+html[lang="en"] .fa-arrow-right {
+  transform: scaleX(-1);
+}
+/* ========================================
+   SPLASH SCREEN — AMINO CURE
+======================================== */
+
+.ac-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+
+  color: #ffffff;
+  background: linear-gradient(150deg, #432080, #5b2fa8 45%, #9b7bea);
+
+  animation: ac-sp-out 0.8s 3.6s forwards;
+
+  transition:
+    opacity 0.7s,
+    transform 0.8s cubic-bezier(0.7, 0, 0.2, 1),
+    filter 0.7s;
+}
+
+.ac-splash.out {
+  opacity: 0;
+  transform: scale(1.15);
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+.ac-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.5;
+  animation: ac-float 7s ease-in-out infinite;
+}
+
+.ac-o1 {
+  width: 60vmax;
+  height: 60vmax;
+  background: #9b7bea;
+  top: -25vmax;
+  inset-inline-end: -20vmax;
+}
+
+.ac-o2 {
+  width: 50vmax;
+  height: 50vmax;
+  background: #8b5cf6;
+  bottom: -22vmax;
+  inset-inline-start: -18vmax;
+  animation-delay: -3s;
+}
+
+@keyframes ac-float {
+  50% {
+    transform: translate(4vmax, 3vmax) scale(1.12);
+  }
+}
+
+.ac-sp-in {
+  position: relative;
+  padding: 24px;
+  text-align: center;
+}
+
+.ac-sp-logo {
+  width: clamp(150px, 14vw, 220px);
+  height: clamp(150px, 14vw, 220px);
+  margin: 0 auto 16px;
+
+  animation: ac-pop 1s 0.2s cubic-bezier(0.2, 1.4, 0.3, 1) both;
+}
+
+.ac-sp-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+}
+
+@keyframes ac-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.3) rotate(-25deg);
+    filter: blur(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.ac-sp-name {
+  direction: ltr;
+  font-size: clamp(30px, 8vw, 46px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.ac-w {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(0.4em);
+
+  animation: ac-w-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: calc(0.7s + var(--i) * 0.15s);
+}
+
+@keyframes ac-w-in {
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+.ac-sp-tag {
+  margin: 8px 0 0;
+  font-size: 14px;
+  opacity: 0;
+  animation: ac-w-in 0.8s 1.3s forwards;
+}
+
+.ac-bar {
+  direction: ltr;
+  width: 150px;
+  height: 4px;
+  margin: 34px auto 0;
+  overflow: hidden;
+
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.25);
+
+  opacity: 0;
+  animation: ac-w-in 0.5s 1.2s forwards;
+}
+
+.ac-bar i {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 4px;
+  background: #ffffff;
+
+  transform: translateX(-100%);
+  animation: ac-load 1.5s 1.3s cubic-bezier(0.5, 0, 0.2, 1) forwards;
+}
+
+@keyframes ac-load {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes ac-sp-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ac-sp-logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 12px;
+  }
+}
+/* ========================================
+   SPLASH FIX — توسيط ومنع الحركة الأفقية
+======================================== */
+
+html.ac-lock,
+html.ac-lock body {
+  overflow: hidden !important;
+  height: 100%;
+}
+
+.ac-splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  contain: paint;
+}
+
+.ac-orb {
+  max-width: none;
+}
+
+.ac-o1 {
+  width: 70vmin;
+  height: 70vmin;
+  top: -20vmin;
+  left: auto;
+  right: -20vmin;
+  inset-inline-end: auto;
+}
+
+.ac-o2 {
+  width: 60vmin;
+  height: 60vmin;
+  bottom: -20vmin;
+  right: auto;
+  left: -20vmin;
+  inset-inline-start: auto;
+}
+
+.ac-sp-in {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ac-sp-logo {
+  margin-inline: auto;
+}
+
+.ac-sp-name,
+.ac-sp-tag {
+  width: 100%;
+  text-align: center;
+}
+/* ========================================
+   إخفاء السبلاش بعد ظهوره مرة واحدة
+======================================== */
+
+html.ac-seen .ac-splash {
+  display: none !important;
+}
+
+/* ========================================
+   RESPONSIVE — كل الأجهزة
+======================================== */
+
+/* منع أي تمرير أفقي */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img,
+video,
+svg,
+iframe {
+  max-width: 100%;
+}
+
+/* ---------- الشاشات الكبيرة جدًا ---------- */
+@media (min-width: 1500px) {
+  :root { --container: 1280px; }
+
+  .header,
+  .footer {
+    padding-inline: max(24px, calc((100% - 1280px) / 2));
+  }
+
+  .hero { min-height: 680px; }
+}
+
+@media (min-width: 1900px) {
+  :root { --container: 1440px; }
+
+  body { font-size: 17px; }
+
+  .header,
+  .footer {
+    padding-inline: max(24px, calc((100% - 1440px) / 2));
+  }
+
+  .hero-visual { max-width: 540px; }
+  .services-grid { gap: 28px; }
+}
+
+/* ---------- لابتوب صغير: ضغط القائمة قليلًا ---------- */
+@media (min-width: 1101px) and (max-width: 1240px) {
+  .header .nav { gap: 8px; }
+  .header .nav a { font-size: 11px; }
+}
+
+/* ---------- صفحة الشهادات: 3 أعمدة على الشاشات الواسعة ---------- */
+@media (min-width: 1000px) {
+  .certificates-container:has(.certificates-grid:not(.certificates-featured-grid)) {
+    max-width: 1100px;
+  }
+
+  .certificates-grid:not(.certificates-featured-grid) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ---------- الشاشات الكبيرة: شبكة المشاريع ---------- */
+@media (min-width: 1100px) {
+  .projects-page-grid { max-width: 1000px; }
+}
+
+/* ---------- تابلت ---------- */
+@media (min-width: 701px) and (max-width: 950px) {
+  .hero {
+    gap: 20px;
+    padding-top: 50px;
+  }
+
+  .hero-visual { max-width: 360px; }
+
+  .hero h1 { font-size: clamp(30px, 5vw, 40px); }
+
+  .follow-card { max-width: 440px; }
+}
+
+/* ---------- هواتف ---------- */
+@media (max-width: 700px) {
+  .hero-actions .btn { flex: 1 1 140px; }
+
+  .social-links { max-width: 100%; }
+
+  .follow-card { max-width: 100%; }
+
+  .projects-cta { max-width: 100%; }
+
+  .medical-disclaimer { width: calc(100% - 28px); }
+
+  .footer { gap: 10px; }
+}
+
+/* ---------- هواتف صغيرة ---------- */
+@media (max-width: 400px) {
+  body { font-size: 15px; }
+
+  .section { width: calc(100% - 24px); }
+
+  .hero {
+    padding-top: 30px;
+    padding-bottom: 20px !important;
+  }
+
+  .hero h1 { font-size: clamp(27px, 8.5vw, 32px); }
+
+  .hero-description { font-size: 14px; }
+
+  .eyebrow {
+    font-size: 10.5px;
+    padding: 7px 11px;
+  }
+
+  .section-heading h2,
+  .contact-panel h2 {
+    font-size: clamp(23px, 7vw, 27px);
+  }
+
+  .section-heading .section-tag,
+  .contact-panel > .section-tag {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .service-card,
+  .service-card:last-child { padding: 20px 16px; }
+
+  .projects-cta { padding: 22px 14px; }
+
+  .projects-page-content { padding: 14px; }
+
+  .projects-page-content h3 { font-size: 17px; }
+
+  .certificate-button {
+    width: 100%;
+    padding: 11px 12px;
+    font-size: 13px;
+  }
+
+  .follow-buttons { flex-direction: column; }
+
+  .follow-btn { flex: 0 0 auto; width: 100%; }
+
+  .social-link {
+    width: 54px;
+    height: 54px;
+    flex-basis: 54px;
+    font-size: 21px;
+    border-radius: 15px;
+  }
+
+  .faq-icon { flex-shrink: 0; }
+}
+
+/* ---------- شاشات ضيقة جدًا (طي، هواتف قديمة) ---------- */
+@media (max-width: 340px) {
+  .hero h1 { font-size: 25px; }
+
+  .header a.logo span { display: none; }
+
+  .header a.logo img.logo-image {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    flex-basis: 40px !important;
+  }
+
+  .social-links { gap: 7px; }
+
+  .social-link {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+    font-size: 19px;
+  }
+
+  .ac-sp-name { font-size: 28px; }
+}
+
+/* ---------- هاتف بوضع أفقي (ارتفاع قصير) ---------- */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding-top: 24px;
+    padding-bottom: 24px !important;
+  }
+
+  .hero-visual { max-width: 220px; }
+
+  .content-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .ac-sp-logo {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 6px;
+  }
+
+  .ac-bar { margin-top: 16px; }
+}
+
+/* ---------- أجهزة اللمس: إلغاء حركات التحويم ---------- */
+@media (hover: none) {
+  .service-card:hover,
+  .projects-page-card:hover,
+  .certificate-card:hover,
+  .btn:hover,
+  .social-link:hover,
+  .follow-btn:hover {
+    transform: none;
+  }
+}
+/* ========================================
+   تصغير الأزرار والبطاقات — متوسط وصغير
+======================================== */
+
+/* ---------- زرا «نبذة عني / شاهد أعمالي» ---------- */
+.hero-actions {
+  gap: 10px;
+}
+
+.hero-actions .btn {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-height: 42px;
+  padding: 9px 20px;
+  font-size: 13px;
+  border-radius: 12px;
+  gap: 8px;
+}
+
+/* ---------- متوسط (تابلت) ---------- */
+@media (max-width: 950px) {
+  .content-section {
+    padding-top: 46px;
+    padding-bottom: 46px;
+  }
+
+  .section-heading { margin-bottom: 26px; }
+
+  .section-heading .section-tag,
+  .contact-panel > .section-tag {
+    padding: 7px 16px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
+  .section-heading h2,
+  .contact-panel h2 {
+    font-size: clamp(24px, 4vw, 31px);
+    margin: 12px 0 9px;
+  }
+
+  .section-heading p,
+  .contact-panel > p {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .services-grid { gap: 14px; }
+
+  .service-card,
+  .service-card:last-child {
+    padding: 20px 18px;
+    border-radius: 18px;
+  }
+
+  .card-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+    font-size: 21px;
+  }
+
+  .service-card h3 { font-size: 17px; }
+  .service-card p { font-size: 13px; line-height: 1.85; }
+  .card-arrow { margin-top: 12px; font-size: 19px; }
+
+  .projects-cta {
+    max-width: 480px;
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .projects-cta-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 12px;
+    border-radius: 15px;
+    font-size: 21px;
+  }
+
+  .projects-cta h3 { font-size: 19px; margin-bottom: 8px; }
+  .projects-cta p { font-size: 13px; margin-bottom: 16px; }
+
+  .projects-cta-button,
+  .projects-page-button,
+  .certificate-button {
+    min-height: 40px;
+    padding: 8px 18px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .follow-card { max-width: 400px; padding: 22px 18px; }
+
+  .follow-profile {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 14px;
+  }
+
+  .follow-card h2 { font-size: 20px; }
+  .follow-description { font-size: 13px; margin-bottom: 16px; }
+
+  .follow-btn {
+    padding: 10px 8px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .contact-panel { padding: 30px 18px; border-radius: 22px; }
+}
+
+/* ---------- هواتف ---------- */
+@media (max-width: 700px) {
+  .hero-actions .btn {
+    min-height: 40px;
+    padding: 8px 17px;
+    font-size: 12.5px;
+  }
+
+  .content-section {
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
+
+  .hero-visual { width: min(100%, 270px); }
+
+  .services-grid { gap: 11px; }
+
+  .service-card,
+  .service-card:last-child { padding: 17px 15px; }
+
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 11px;
+    font-size: 19px;
+  }
+
+  .service-card h3 { font-size: 16px; margin-bottom: 8px; }
+  .service-card p { font-size: 12.5px; }
+
+  #about .about-content { padding: 20px 14px 16px; }
+
+  .projects-cta { padding: 20px 16px; }
+
+  .projects-page-grid { max-width: 330px; gap: 14px; }
+
+  .projects-page-card > img.projects-page-image,
+  .projects-page-card > .projects-page-image,
+  .projects-page-image { height: 150px; min-height: 150px; max-height: 150px; }
+
+  .projects-page-content { padding: 14px 13px; }
+  .projects-page-content h3 { font-size: 16px; }
+  .projects-page-content p { font-size: 12.5px; line-height: 1.8; margin-bottom: 12px; }
+
+  .certificates-grid { gap: 12px; }
+  .certificates-grid .certificate-card .certificate-content { padding: 10px 12px 14px; }
+  .certificates-grid .certificate-card .certificate-content h3 { font-size: 14px; margin: 8px 0; }
+
+  #faq .faq summary { padding: 13px 12px; font-size: 13px; }
+  #faq .faq .faq-icon { flex-basis: 28px; width: 28px; height: 28px; font-size: 18px; }
+  #faq .faq details > p { padding: 0 12px 14px; font-size: 12.5px; }
+
+  .follow-card { max-width: 340px; padding: 18px 14px; }
+  .follow-profile { width: 130px; height: 130px; }
+
+  .social-link {
+    width: 54px;
+    height: 54px;
+    flex-basis: 54px;
+    font-size: 21px;
+    border-radius: 15px;
+  }
+
+  .back-to-top { width: 40px; height: 40px; font-size: 22px; }
+}
+
+/* ---------- هواتف صغيرة ---------- */
+@media (max-width: 400px) {
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .hero-actions .btn {
+    width: auto !important;
+    min-height: 38px;
+    padding: 7px 14px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+
+  .service-card,
+  .service-card:last-child { padding: 15px 13px; }
+
+  .projects-page-grid { max-width: 100%; }
+
+  .social-link {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+    font-size: 19px;
+    border-radius: 13px;
+  }
+}
+/* ========================================
+   السبلاش على الشاشات الكبيرة
+======================================== */
+
+@media (min-width: 1024px) and (min-height: 481px) {
+  .ac-sp-in {
+    max-width: 760px;
+  }
+
+  .ac-sp-logo {
+    width: clamp(240px, 30vmin, 400px);
+    height: clamp(240px, 30vmin, 400px);
+    margin-bottom: 22px;
+  }
+
+  .ac-sp-name {
+    font-size: clamp(52px, 8vmin, 96px);
+  }
+
+  .ac-sp-tag {
+    margin-top: 14px;
+    font-size: clamp(17px, 2.3vmin, 28px);
+  }
+
+  .ac-bar {
+    width: clamp(220px, 22vmin, 340px);
+    height: 5px;
+    margin-top: clamp(38px, 5vmin, 60px);
+  }
+}
+
+/* شاشات عريضة جدًا (2K / 4K) */
+@media (min-width: 1900px) and (min-height: 700px) {
+  .ac-sp-logo {
+    width: clamp(300px, 34vmin, 480px);
+    height: clamp(300px, 34vmin, 480px);
+  }
+
+  .ac-sp-name {
+    font-size: clamp(64px, 9vmin, 120px);
+  }
+}
+
+/* تابلت */
+@media (min-width: 701px) and (max-width: 1023px) and (min-height: 481px) {
+  .ac-sp-logo {
+    width: clamp(190px, 24vmin, 280px);
+    height: clamp(190px, 24vmin, 280px);
+  }
+
+  .ac-sp-name {
+    font-size: clamp(40px, 7vmin, 64px);
+  }
+
+  .ac-sp-tag {
+    font-size: 16px;
+  }
+}
