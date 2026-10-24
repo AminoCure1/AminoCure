@@ -479,7 +479,47 @@ document.addEventListener("DOMContentLoaded", function () {
         ? "صورة صاحب Amino Cure"
         : "Amino Cure founder profile photo";
     }
+    // ترجمة التلميحات والنصوص الخفية
+    const hiddenTexts = [
+      ["#backToTop", "Back to top"],
+      [".medical-disclaimer", "Medical disclaimer"],
+      ['.social-link[href^="mailto"]', "Email"],
+      ['.social-link[href*="t.me"]', "Telegram"],
+      ['.social-link[href*="linkedin"]', "LinkedIn"],
+      ['.social-link[href*="instagram"]', "Instagram"],
+      ['.social-link[href*="facebook"]', "Facebook"],
+      ['.social-link[href*="wa.me"]', "WhatsApp"],
+      ['a[aria-label^="عرض شهادة"]', "View certificate"]
+    ];
 
+    hiddenTexts.forEach(function (item) {
+      document.querySelectorAll(item[0]).forEach(function (element) {
+        ["aria-label", "title"].forEach(function (attr) {
+          if (!element.hasAttribute(attr)) return;
+
+          const key = "ar" + attr.replace("-", "");
+          if (element.dataset[key] === undefined) {
+            element.dataset[key] = element.getAttribute(attr);
+          }
+
+          element.setAttribute(
+            attr,
+            language === "ar" ? element.dataset[key] : item[1]
+          );
+        });
+      });
+    });
+
+    const followProfile = document.querySelector(".follow-profile");
+
+    if (followProfile) {
+      if (followProfile.dataset.arAlt === undefined) {
+        followProfile.dataset.arAlt = followProfile.alt;
+      }
+
+      followProfile.alt =
+        language === "ar" ? followProfile.dataset.arAlt : "Amin - Amino Cure";
+    }
     // زر اللغة
     if (languageToggle) {
       languageToggle.textContent = language === "ar" ? "EN" : "عربي";
