@@ -12,7 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const nav = document.getElementById("nav");
   const year = document.getElementById("year");
 
-  // تحديث السنة تلقائياً
+  const path = window.location.pathname;
+  const isProjectsPage = /projects\.html/i.test(path);
+  const isCertificatesPage = /certificates\.html/i.test(path);
+
+  const originalTitle = document.title;
+  const descriptionMeta = document.querySelector('meta[name="description"]');
+  const originalDescription = descriptionMeta ? descriptionMeta.content : "";
+
   if (year) {
     year.textContent = new Date().getFullYear();
   }
@@ -57,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ========================================
-  // 3. تحديث زر الوضع اللوني
+  // 3. زر الوضع اللوني
   // ========================================
 
   function updateThemeButton() {
@@ -100,299 +107,320 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ========================================
-  // 4. ترجمات الموقع
+  // 4. الترجمات (الإنجليزية فقط)
+  // النص العربي يُحفظ تلقائيًا من الصفحة نفسها
+  //
+  // الشكل: [المحدد, الإنجليزية, "text" اختياري]
+  // "text" = يستبدل النص فقط ويُبقي الأيقونات داخل العنصر
   // ========================================
 
   const translations = [
-    // القائمة الرئيسية
-    // القائمة الرئيسية — ترتيب الروابط الصحيح
-[".nav a:nth-child(1)", "الرئيسية", "Home"],
-[".nav a:nth-child(2)", "الخدمات", "Services"],
-[".nav a:nth-child(3)", "من أنا؟", "About Me"],
-[".nav a:nth-child(4)", "أعمالي", "Portfolio"],
-[".nav a:nth-child(5)", "دليل المتدربين", "Trainee Guide"],
-[".nav a:nth-child(6)", "الشهادات والدورات", "Certificates & Courses"],
-[".nav a:nth-child(7)", "الأسئلة الشائعة", "FAQ"],
-[".nav a:nth-child(8)", "تواصل معي", "Contact"],
-    // الواجهة الرئيسية
-    [
-      ".eyebrow",
-      "صيدلة • تثقيف صحي • صناعة محتوى",
-      "Pharmacy • Health Education • Content Creation"
-    ],
 
-    [
-      ".hero h1 .gradient-text",
-      "معلومة أبسط، حياة أفضل.",
-      "Simpler Knowledge, Better Health."
-    ],
+    // ---------- القائمة (بالـ href وليس بالترتيب) ----------
+    ['.nav a[href$="#home"]', "Home"],
+    ['.nav a[href$="#services"]', "Services"],
+    ['.nav a[href$="#about"]', "About Me"],
+    ['.nav a[href$="#work"]', "My Work"],
+    ['.nav a[href$="projects.html"]', "My Projects"],
+    ['.nav a[href*="Trainee-Guide"]', "Trainee Guide"],
+    ['.nav a[href$="#certificates"], .nav a[href$="certificates.html"]', "Certificates & Courses"],
+    ['.nav a[href$="#faq"]', "FAQ"],
+    ['.nav a[href$="#contact"]', "Contact"],
+
+    // ---------- الواجهة الرئيسية ----------
+    [".eyebrow", "Pharmacy • Health Education • Content Creation", "text"],
+
+    [".hero h1 .gradient-text", "Simpler Knowledge, Better Health."],
 
     [
       ".hero-description",
-      "محتوى صيدلاني مبسّط يساعدك على فهم الأدوية والمعلومات الصحية بطريقة واضحة وموثوقة.",
       "Simplified pharmaceutical content that helps you understand medicines and health information in a clear and reliable way."
     ],
 
-    [
-      ".hero-actions .btn-primary",
-      'تعرّف عني <span>←</span>',
-      'About Me <span>→</span>'
-    ],
-
-    [
-      ".hero-actions .btn-secondary",
-      "شاهد أعمالي",
-      "View My Work"
-    ],
+    [".hero-actions .btn-primary", "About Me <span>→</span>"],
+    [".hero-actions .btn-secondary", "View My Work"],
 
     [
       ".hero-note span:last-child",
-      "المعلومة الصحيحة تبدأ بفهم أبسط.",
       "Better understanding starts with clear information."
     ],
 
-    // الخدمات
-    ["#services .section-tag", "ماذا أقدّم؟", "What I Offer"],
+    // ---------- الخدمات ----------
+    ["#services .section-tag", "What I Offer"],
 
     [
       "#services .section-heading h2",
-      'معرفة صحية <span class="gradient-text">بطريقة أبسط.</span>',
-      'Health Knowledge <span class="gradient-text">Made Simpler.</span>'
+      'Health Knowledge <span class="gradient-text">Made Simpler</span>'
     ],
 
     [
       "#services .section-heading p",
-      "محتوى واضح وتصميم منظم يساعد على إيصال المعلومة بصورة أفضل.",
       "Clear content and thoughtful design that make information easier to understand."
     ],
 
-    [
-      "#services .service-card:nth-child(1) h3",
-      "المحتوى الصيدلاني",
-      "Pharmaceutical Content"
-    ],
-
+    ["#services .service-card:nth-child(1) h3", "Pharmaceutical Content"],
     [
       "#services .service-card:nth-child(1) p",
-      "تبسيط المعلومات المتعلقة بالأدوية والمفاهيم الصيدلانية بلغة سهلة وواضحة.",
       "Simplifying information about medicines and pharmaceutical concepts in clear, accessible language."
     ],
 
-    [
-      "#services .service-card:nth-child(2) h3",
-      "التثقيف الصحي",
-      "Health Education"
-    ],
-
+    ["#services .service-card:nth-child(2) h3", "Health Education"],
     [
       "#services .service-card:nth-child(2) p",
-      "إعداد محتوى توعوي يساعد الناس على فهم المعلومات الصحية بصورة أفضل.",
       "Creating educational content that helps people better understand health information."
     ],
 
-    [
-      "#services .service-card:nth-child(3) h3",
-      "تصميم المحتوى الطبي",
-      "Medical Content Design"
-    ],
-
+    ["#services .service-card:nth-child(3) h3", "Medical Content Design"],
     [
       "#services .service-card:nth-child(3) p",
-      "تنسيق المعلومات الصحية في تصاميم بصرية مرتبة وسهلة القراءة.",
       "Presenting health information through organized, easy-to-read visual designs."
     ],
 
-    // من أنا
-    ["#about .section-tag", "من أنا؟", "About Me"],
+    [".service-card .card-arrow", "→"],
+
+    // ---------- من أنا ----------
+    ["#about .section-tag", "About Me"],
+    ["#about .about-card-label", "A Short Introduction"],
+    ["#about .about-card-title", "Welcome to my world!"],
 
     [
       "#about .about-text p:nth-child(1)",
-      "أنا أمين تاج الدين عثمان، مهتم بمجال الصيدلة وصناعة المحتوى الصحي، وأسعى من خلال Amino Cure إلى تقديم المعلومات الطبية والصيدلانية بطريقة بسيطة وواضحة وقريبة من الناس.",
       "I am Amin Taj El-Din Osman, with an interest in pharmacy and health content creation. Through Amino Cure, I aim to present medical and pharmaceutical information in a simple, clear, and approachable way."
     ],
 
     [
       "#about .about-text p:nth-child(2)",
-      "أؤمن أن المعلومة الصحية الصحيحة، لما تصل بصورة سهلة، بتساعد الناس على فهم صحتهم والتعامل مع أدويتهم بوعي أكبر.",
       "I believe that when accurate health information is communicated clearly, it helps people understand their health and use their medicines more responsibly."
     ],
 
-    // الأعمال
-    ["#work .section-tag", "أعمالي", "My Work"],
+    ["#about .about-tags span:nth-child(1)", "💊 Pharmacy"],
+    ["#about .about-tags span:nth-child(2)", "✦ Health Education"],
+    ["#about .about-tags span:nth-child(3)", "✎ Medical Content"],
+
+    // ---------- أعمالي (بطاقة المشاريع) ----------
+    ["#work .section-tag", "My Work & Projects"],
+
+    [
+      "#work .section-heading h2",
+      'Ideas Turned Into <span class="gradient-text">Useful Projects</span>'
+    ],
 
     [
       "#work .section-heading p",
-      "نماذج من الأعمال والمشاريع التي أعمل عليها في صناعة المحتوى الصحي.",
-      "A selection of projects and work in health content creation."
+      "Explore my digital projects in pharmacy and health education."
     ],
 
-    [
-      ".work-placeholder-title",
-      "مساحة إبداعية",
-      "Creative Space"
-    ],
+    [".projects-cta h3", "From Idea to Application"],
 
     [
-      ".work-placeholder-text",
-      "ستُضاف نماذج الأعمال هنا لاحقاً",
-      "Portfolio examples will be added here soon."
+      ".projects-cta p",
+      "Learn about the projects I'm working on, and discover their goals and features."
     ],
 
-    [
-      "#work .work-footer h3",
-      "أعمال Amino Cure",
-      "Amino Cure Portfolio"
-    ],
+    [".projects-cta-button span", "Explore My Projects"],
+
+    // ---------- الشهادات (الصفحة الرئيسية + صفحة الشهادات) ----------
+    ["#certificates .section-tag", "My Certificates"],
 
     [
-      ".work-count",
-      "قريباً ↙",
-      "Coming Soon ↙"
-    ],
-
-    [
-      ".section-footnote",
-      "سنضيف صور الأعمال وروابطها بعد تجهيزها.",
-      "Project images and links will be added once they are ready."
-    ],
-
-    // الشهادات والدورات
-    [
-      "#certificates .section-tag",
-      "شهاداتي",
-      "My Certificates"
-    ],
-
-    [
-      "#certificates .section-heading h2",
-      'رحلتي في التعلّم <span class="gradient-text">والتطوير</span>',
+      "#certificates .section-heading h1, #certificates .section-heading h2",
       'My Learning <span class="gradient-text">Journey</span>'
     ],
 
     [
-      "#certificates .section-heading p",
-      "شهاداتي ودوراتي التعليمية مع روابط التحقق المتاحة.",
+      "#certificates .section-heading h2 ~ p",
       "My certificates and courses, with available verification links."
     ],
 
-    // ملاحظة: لا نترجم عناصر h3 داخل بطاقات الشهادات،
-    // حتى تبقى أسماء الشهادات الأصلية كما هي في HTML.
-
-    // زر عرض باقي الشهادات
     [
-      "#certificates .more-certificates > summary",
-      'عرض باقي الشهادات (20) <span aria-hidden="true">＋</span>',
-      'View Remaining Certificates (20) <span aria-hidden="true">＋</span>'
+      "#certificates .section-heading h1 ~ p",
+      "A collection of certificates and courses I completed throughout my educational and professional journey, with available verification links."
     ],
 
-    // الأسئلة الشائعة
+    [".certificate-button", "🔗 Verify Certificate"],
+    [".certificate-no-link", "No verification link"],
+
+    ['#certificates a[href="./certificates.html"]', "View All Certificates →"],
+
+    ['a.btn-primary[href="index.html#certificates"]', "Back to Home"],
+
+    // عناوين الشهادات المكتوبة بالعربية (صفحة الشهادات فقط)
     [
-      "#faq .section-tag",
-      "أسئلة شائعة",
-      "Frequently Asked Questions"
+      ".certificates-grid:not(.certificates-featured-grid) .certificate-card:nth-child(8) h3",
+      "Business Writing"
     ],
+    [
+      ".certificates-grid:not(.certificates-featured-grid) .certificate-card:nth-child(11) h3",
+      "Effective Time Management"
+    ],
+    [
+      ".certificates-grid:not(.certificates-featured-grid) .certificate-card:nth-child(13) h3",
+      "Business Ethics and Professional Conduct"
+    ],
+    [
+      ".certificates-grid:not(.certificates-featured-grid) .certificate-card:nth-child(16) h3",
+      "Positive Energy"
+    ],
+
+    // ---------- الأسئلة الشائعة ----------
+    ["#faq .section-tag", "Frequently Asked Questions"],
 
     [
       "#faq .section-heading h2",
-      'عندك سؤال؟ <span class="gradient-text">الإجابة هنا</span>',
       'Have a Question? <span class="gradient-text">Find the Answer</span>'
     ],
 
     [
       "#faq .section-heading p",
-      "إجابات مختصرة عن المحتوى والخدمات وطرق التعاون.",
       "Quick answers about the content, services, and collaboration."
     ],
 
-    [
-      "#faq details:nth-child(1) summary",
-      'ما نوع المحتوى الذي تقدّمه؟ <span class="faq-icon">＋</span>',
-      'What type of content do you create? <span class="faq-icon">＋</span>'
-    ],
-
+    ["#faq details:nth-child(1) summary", "What type of content do you create?", "text"],
     [
       "#faq details:nth-child(1) > p",
-      "أقدّم محتوى صيدلانيًا وتثقيفًا صحيًا مبسّطًا، إضافة إلى تصميم منشورات وصور تساعد على توصيل المعلومة بوضوح.",
       "I create simplified pharmaceutical and health education content, along with visual posts and designs that communicate information clearly."
     ],
 
-    [
-      "#faq details:nth-child(2) summary",
-      'هل المحتوى بديل عن استشارة الطبيب أو الصيدلي؟ <span class="faq-icon">＋</span>',
-      'Does this content replace professional advice? <span class="faq-icon">＋</span>'
-    ],
-
+    ["#faq details:nth-child(2) summary", "Does this content replace professional advice?", "text"],
     [
       "#faq details:nth-child(2) > p",
-      "لا، المحتوى للتثقيف العام فقط، ولا يغني عن استشارة الطبيب أو الصيدلي، خاصة عند اختيار دواء أو تعديل جرعته.",
       "No. This content is for general education only and does not replace advice from a doctor or pharmacist, especially when choosing a medicine or changing its dose."
     ],
 
-    [
-      "#faq details:nth-child(3) summary",
-      'كيف أطلب خدمة أو تعاونًا؟ <span class="faq-icon">＋</span>',
-      'How can I request a service or collaboration? <span class="faq-icon">＋</span>'
-    ],
-
+    ["#faq details:nth-child(3) summary", "How can I request a service or collaboration?", "text"],
     [
       "#faq details:nth-child(3) > p",
-      "يمكنك التواصل معي عبر وسائل التواصل الموجودة في قسم «تواصل معي»، مع توضيح نوع الخدمة أو فكرة التعاون.",
       'You can contact me through the links in the "Contact" section and describe the service or collaboration you have in mind.'
     ],
 
-    [
-      "#faq details:nth-child(4) summary",
-      'هل يمكن تصميم محتوى حسب الطلب؟ <span class="faq-icon">＋</span>',
-      'Can you create custom content? <span class="faq-icon">＋</span>'
-    ],
-
+    ["#faq details:nth-child(4) summary", "Can you create custom content?", "text"],
     [
       "#faq details:nth-child(4) > p",
-      "نعم، يمكن مناقشة فكرة المحتوى والهدف منه وتحديد التفاصيل المناسبة قبل بدء العمل.",
       "Yes. We can discuss the idea, its purpose, and the requirements before starting the project."
     ],
 
-    [
-      "#faq details:nth-child(5) summary",
-      'كم تستغرق مدة التنفيذ؟ <span class="faq-icon">＋</span>',
-      'How long does a project take? <span class="faq-icon">＋</span>'
-    ],
-
+    ["#faq details:nth-child(5) summary", "How long does a project take?", "text"],
     [
       "#faq details:nth-child(5) > p",
-      "تختلف المدة حسب نوع العمل وحجمه، ويتم الاتفاق على موعد التسليم بعد تحديد التفاصيل.",
       "The timeline depends on the type and scope of the project. A delivery date can be agreed upon once the details are confirmed."
     ],
 
-    // التواصل
-    ["#contact .section-tag", "التواصل", "Contact"],
+    // ---------- قسم المتابعة ----------
+    [".follow-card h2", "Follow My Pharmaceutical Content"],
+
+    [
+      ".follow-description",
+      "I share simplified drug information, health awareness, and pharmaceutical content that helps you understand medical information clearly."
+    ],
+
+    [".facebook-btn", "Follow me on Facebook"],
+    [".instagram-btn", "Follow me on Instagram"],
+
+    // ---------- التواصل ----------
+    ["#contact .section-tag", "Contact"],
 
     [
       "#contact .contact-panel h2",
-      'عندك فكرة؟ <span class="gradient-text">خلينا نبدأ</span>',
       'Have an Idea? <span class="gradient-text">Let’s Get Started</span>'
     ],
 
     [
       "#contact .contact-panel > p",
-      "للتواصل والاستفسارات والتعاون في مشاريع المحتوى الصيدلاني والصحي.",
       "Get in touch for questions, inquiries, and collaboration on pharmaceutical and health content projects."
     ],
 
-    // التنويه الطبي
+    // ---------- صفحة المشاريع ----------
+    [".projects-page-intro .section-tag", "Portfolio"],
+
+    [
+      ".projects-page-intro h1",
+      'My <span class="gradient-text">Digital Projects</span>'
+    ],
+
+    [
+      ".projects-page-intro p",
+      "A collection of projects I'm working on to deliver useful ideas in pharmacy, health education, and digital learning."
+    ],
+
+    [".projects-disclaimer-content h3", "Apps are still under development and testing"],
+
+    [
+      ".projects-disclaimer-content p",
+      "The projects shown here are not complete yet and are still in the development and testing stage. The information in them is not accurate enough to rely on at this time and may contain errors or gaps. Do not use them to make any treatment or medication decision, and always refer to approved references and consult a doctor or pharmacist."
+    ],
+
+    [
+      ".projects-disclaimer-note",
+      "Amino Cure — Knowledge is for learning, and patient safety comes first."
+    ],
+
+    // المشروع 1
+    [".projects-page-card:nth-child(1) .projects-page-category", "Web Project", "text"],
+    [".projects-page-card:nth-child(1) h3", "Pharmacy Trainee Guide"],
+    [
+      ".projects-page-card:nth-child(1) .projects-page-content > p",
+      "An online guide that helps trainees discover information and resources that may support them throughout their training journey."
+    ],
+    [".projects-page-card:nth-child(1) .projects-page-button span", "Visit Project"],
+
+    // المشروع 2
+    [".projects-page-card:nth-child(2) .projects-page-category", "Educational App", "text"],
+    [
+      ".projects-page-card:nth-child(2) .projects-page-content > p",
+      "An interactive educational app for reviewing pharmaceutical information and practicing with questions and flashcards."
+    ],
+    [".projects-page-card:nth-child(2) .projects-page-button span", "Try the App"],
+
+    // المشروع 3
+    [".projects-page-card:nth-child(3) .projects-page-category", "Pharmacy System", "text"],
+    [
+      ".projects-page-card:nth-child(3) .projects-page-content > p",
+      "A project for managing pharmacy inventory, organizing products and batches, and tracking expiry dates and stock movements, with a focus on ease of use and offline operation."
+    ],
+    [".projects-page-card:nth-child(3) .projects-page-button span", "Explore the Project"],
+
+    // المشروع 4
+    [".projects-page-card:nth-child(4) .projects-page-category", "Pharmaceutical Reference", "text"],
+    [".projects-page-card:nth-child(4) h3", "Pregnancy & Lactation Reference"],
+    [
+      ".projects-page-card:nth-child(4) .projects-page-content > p",
+      "A simplified pharmaceutical reference for looking up drug safety information during pregnancy and breastfeeding, with an educational guide on pregnancy stages and fetal development."
+    ],
+    [".projects-page-card:nth-child(4) .projects-page-button span", "Visit the App"],
+
+    // المشروع 5
+    [".projects-page-card:nth-child(5) .projects-page-category", "Online Store", "text"],
+    [".projects-page-card:nth-child(5) h3", "Amino Cure Pharmacy Store"],
+    [
+      ".projects-page-card:nth-child(5) .projects-page-content > p",
+      "An online store for Amino Cure Pharmacy to display products and make ordering simple and fast."
+    ],
+    [".projects-page-card:nth-child(5) .projects-page-button span", "Visit the Store"],
+
+    // حالة المشاريع + العودة
+    [".projects-page-status", "Under development — not yet complete", "text"],
+    [".projects-page-back a", "Back to Home", "text"],
+
+    // ---------- التنويه الطبي والتذييل ----------
     [
       ".medical-disclaimer p",
-      "<strong>تنويه طبي:</strong> المحتوى للتثقيف الصحي فقط، ولا يُغني عن استشارة الطبيب أو الصيدلي، ولا يُعدّ بديلًا عن التشخيص أو العلاج.",
       "<strong>Medical Disclaimer:</strong> This content is for educational purposes only. It does not replace consultation with a doctor or pharmacist, nor does it replace diagnosis or treatment."
     ],
 
-    // التذييل
-    [
-      ".footer > p:not(.copyright)",
-      "معلومة أبسط، حياة أفضل.",
-      "Simpler Knowledge, Better Health."
-    ]
+    [".footer > p:not(.copyright)", "Simpler Knowledge, Better Health."]
   ];
+
+  // آخر نص مباشر داخل العنصر (للعناصر التي تحتوي أيقونات)
+  function getLastTextNode(element) {
+    const nodes = Array.prototype.filter.call(
+      element.childNodes,
+      function (node) {
+        return node.nodeType === 3 && node.textContent.trim() !== "";
+      }
+    );
+
+    return nodes.length ? nodes[nodes.length - 1] : null;
+  }
 
   // ========================================
   // 5. تطبيق اللغة
@@ -404,35 +432,46 @@ document.addEventListener("DOMContentLoaded", function () {
     html.lang = language;
     html.dir = language === "ar" ? "rtl" : "ltr";
 
-    // تغيير النصوص المحددة فقط
     translations.forEach(function (item) {
       const selector = item[0];
-      const arabic = item[1];
-      const english = item[2];
+      const english = item[1];
+      const mode = item[2];
 
       document.querySelectorAll(selector).forEach(function (element) {
-        element.innerHTML = language === "ar" ? arabic : english;
+
+        if (mode === "text") {
+          const node = getLastTextNode(element);
+          if (!node) return;
+
+          if (node.arOriginal === undefined) {
+            node.arOriginal = node.textContent;
+          }
+
+          node.textContent =
+            language === "ar" ? node.arOriginal : " " + english + " ";
+
+          return;
+        }
+
+        if (element.dataset.arHtml === undefined) {
+          element.dataset.arHtml = element.innerHTML;
+        }
+
+        element.innerHTML =
+          language === "ar" ? element.dataset.arHtml : english;
       });
     });
 
     // النصوص العائمة
-    const floatingLabels = document.querySelectorAll(".float-item");
-
     const floatingArabic = ["صيدلة", "محتوى", "أمينو"];
     const floatingEnglish = ["Pharmacy", "Content", "Amino"];
 
-    floatingLabels.forEach(function (element, index) {
+    document.querySelectorAll(".float-item").forEach(function (element, index) {
       element.textContent =
-        language === "ar"
-          ? floatingArabic[index]
-          : floatingEnglish[index];
+        language === "ar" ? floatingArabic[index] : floatingEnglish[index];
     });
 
-    // النصوص البديلة للصور
-    document.querySelectorAll(".logo-image").forEach(function (image) {
-      image.alt = "Amino Cure";
-    });
-
+    // النصوص البديلة
     const profileImage = document.querySelector(".profile-image");
 
     if (profileImage) {
@@ -455,22 +494,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // عنوان الصفحة ووصفها
-    document.title = language === "ar"
-      ? "Amino Cure | معلومة أبسط، حياة أفضل"
-      : "Amino Cure | Simpler Knowledge, Better Health";
+    if (language === "ar") {
+      document.title = originalTitle;
 
-    const description = document.querySelector('meta[name="description"]');
+      if (descriptionMeta) {
+        descriptionMeta.content = originalDescription;
+      }
+    } else {
+      let englishTitle = "Amino Cure | Simpler Knowledge, Better Health";
+      let englishDescription =
+        "Amino Cure — Simplified pharmaceutical content, health education, and medical content design.";
 
-    if (description) {
-      description.content = language === "ar"
-        ? "Amino Cure — محتوى صيدلاني وتثقيف صحي مبسط وتصميم محتوى طبي."
-        : "Amino Cure — Simplified pharmaceutical content, health education, and medical content design.";
+      if (isProjectsPage) {
+        englishTitle = "My Projects | Amino Cure";
+        englishDescription =
+          "Discover Amin Taj El-Din Osman's projects in pharmacy, health education, and educational apps.";
+      } else if (isCertificatesPage) {
+        englishTitle = "Certificates & Courses | Amino Cure";
+        englishDescription =
+          "Browse Amin Taj El-Din Osman's certificates and courses in pharmacy, health education, and professional development.";
+      }
+
+      document.title = englishTitle;
+
+      if (descriptionMeta) {
+        descriptionMeta.content = englishDescription;
+      }
     }
 
-    // تحديث زر الوضع اللوني
     updateThemeButton();
 
-    // تحديث تسمية قائمة الهاتف
+    // تسمية قائمة الهاتف
     if (menuToggle) {
       const isOpen = nav && nav.classList.contains("open");
 
@@ -482,7 +536,6 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
 
-    // حفظ اللغة
     try {
       localStorage.setItem("amino-cure-language", language);
     } catch (error) {
@@ -518,7 +571,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const isOpen = nav.classList.toggle("open");
 
       menuToggle.textContent = isOpen ? "✕" : "☰";
-
       menuToggle.setAttribute("aria-expanded", String(isOpen));
 
       menuToggle.setAttribute(
@@ -544,7 +596,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 700) {
+      if (window.innerWidth > 1100) {
         closeMenu();
       }
     });
@@ -612,10 +664,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // ========================================
   // 9. تحميل صور صفحة الشهادات مسبقًا
   // ========================================
-  // بعد اكتمال تحميل الصفحة الرئيسية، يحمّل المتصفح صور الشهادات
-  // في الخلفية، فتظهر فورًا عند فتح صفحة "عرض جميع الشهادات".
 
-  if (!/certificates\.html/i.test(window.location.pathname)) {
+  if (!isCertificatesPage) {
     const certificateImages = [13, 15, 17, 18, 16, 14, 1, 7, 5, 8, 4, 10, 9, 6, 11, 3, 2, 19, 20, 21];
 
     const preloadCertificates = function () {
@@ -635,4 +685,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
