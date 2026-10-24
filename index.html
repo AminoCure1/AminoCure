@@ -23,7 +23,13 @@
 
   <!-- تحميل مسبق لصورة البروفايل حتى تظهر مباشرة -->
   <link rel="preload" as="image" href="profile.webp" type="image/webp" fetchpriority="high">
-
+  <script>
+    try {
+      if (sessionStorage.getItem("ac-splash-seen") === "1") {
+        document.documentElement.classList.add("ac-seen");
+      }
+    } catch (e) {}
+  </script>
   <link rel="stylesheet" href="style.css">
 
   <!-- Font Awesome -->
@@ -73,7 +79,81 @@
 </head>
 
 <body>
+  <!-- شاشة البداية (Splash) -->
+  <div class="ac-splash" id="acSplash" aria-hidden="true">
+    <div class="ac-orb ac-o1"></div>
+    <div class="ac-orb ac-o2"></div>
 
+    <div class="ac-sp-in">
+      <div class="ac-sp-logo">
+        <picture>
+          <source srcset="logo.png" type="png">
+          <img src="logo.png" alt="">
+        </picture>
+      </div>
+
+      <div class="ac-sp-name" id="acSpName"></div>
+      <p class="ac-sp-tag" id="acSpTag"></p>
+
+      <div class="ac-bar"><i></i></div>
+    </div>
+  </div>
+
+    <script>
+    (function () {
+      var root = document.documentElement;
+      var splash = document.getElementById("acSplash");
+      if (!splash) return;
+
+      // ظهر من قبل في هذه الجلسة: احذفه فورًا ولا تعرضه
+      if (root.classList.contains("ac-seen")) {
+        splash.remove();
+        return;
+      }
+
+      // سجّل أنه ظهر، حتى لا يتكرر عند الرجوع من الصفحات الأخرى
+      try { sessionStorage.setItem("ac-splash-seen", "1"); } catch (e) {}
+
+      root.classList.add("ac-lock");
+
+      var lang = "ar";
+      try {
+        var saved = localStorage.getItem("amino-cure-language");
+        if (saved === "en" || saved === "ar") lang = saved;
+      } catch (e) {}
+
+      var name = document.getElementById("acSpName");
+      var tag = document.getElementById("acSpTag");
+
+      ["Amino", "Cure"].forEach(function (word, i) {
+        var span = document.createElement("span");
+        span.className = "ac-w";
+        span.style.setProperty("--i", i);
+        span.textContent = word;
+        name.appendChild(span);
+        if (i === 0) name.appendChild(document.createTextNode(" "));
+      });
+
+      tag.textContent = lang === "ar"
+        ? "معلومة أبسط، حياة أفضل."
+        : "Simpler Knowledge, Better Health.";
+
+      function unlock() {
+        root.classList.remove("ac-lock");
+      }
+
+      setTimeout(function () {
+        splash.classList.add("out");
+        setTimeout(function () {
+          splash.remove();
+          unlock();
+        }, 900);
+      }, 3000);
+
+      // احتياط: فك القفل حتى لو حدث خطأ
+      setTimeout(unlock, 4500);
+    })();
+  </script>
   <!-- شريط التنقل -->
   <header class="header" id="top">
 
